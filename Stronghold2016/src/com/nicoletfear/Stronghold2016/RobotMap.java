@@ -6,6 +6,11 @@ package com.nicoletfear.Stronghold2016;
  * floating around.
  */
 public class RobotMap {
+	public static final int backLeftPort = 0;
+	public static final int backRightPort = 1;
+	public static final int frontLeftPort = 3;
+	public static final int frontRightPort = 4;
+	
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     // public static int leftMotor = 1;
