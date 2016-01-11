@@ -38,7 +38,6 @@ public class DriveTrain extends Subsystem {
 	CANTalon backRight = new CANTalon(RobotMap.backRightPort);
 	CANTalon frontLeft = new CANTalon(RobotMap.frontLeftPort);
 	CANTalon frontRight = new CANTalon(RobotMap.frontRightPort);
-
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
