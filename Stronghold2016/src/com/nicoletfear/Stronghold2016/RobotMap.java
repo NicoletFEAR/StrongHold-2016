@@ -6,6 +6,10 @@ package com.nicoletfear.Stronghold2016;
  * floating around.
  */
 public class RobotMap {
+	
+	//CANTalon ports
+	// use instead of magic numbers
+	//will be updated once we have a finished bot
 	public static final int backLeftPort = 0;
 	public static final int backRightPort = 1;
 	public static final int frontLeftPort = 3;
