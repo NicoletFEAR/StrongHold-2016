@@ -35,6 +35,7 @@ public class  Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//gets input from controller and drives bot
     	double rightInput = Robot.oi.getRight().getY();
     	double leftInput = Robot.oi.getLeft().getY();
     	Robot.driveTrain.drive(leftInput, rightInput);
