@@ -38,6 +38,7 @@ public class  Drive extends Command {
     	//gets input from controller and drives bot
     	double rightInput = Robot.oi.getRight().getY();
     	//multiplied by -1 to invert control for left motor
+    	//plan to hopefully remove soon
     	double leftInput = -1 * Robot.oi.getLeft().getY();
     	Robot.driveTrain.drive(leftInput, rightInput);
     }
