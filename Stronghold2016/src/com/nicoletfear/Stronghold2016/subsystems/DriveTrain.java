@@ -64,5 +64,19 @@ public class DriveTrain extends Subsystem {
 		frontLeft.set(leftOutput);
 		frontRight.set(rightOutput);
 	}
+	
+	private void ensurePositionMode(){
+		frontLeft.changeControlMode(CANTalon.TalonControlMode.Position);
+		frontRight.changeControlMode(CANTalon.TalonControlMode.Position);
+		frontLeft.setProfile(RobotMap.positionProfile);
+		frontRight.setProfile(RobotMap.positionProfile);
+	}
+	
+	private void ensureVelocityMode(){
+		frontLeft.changeControlMode(CANTalon.TalonControlMode.Speed);
+		frontRight.changeControlMode(CANTalon.TalonControlMode.Speed);
+		frontLeft.setProfile(RobotMap.velocityProfile);
+		frontRight.setProfile(RobotMap.velocityProfile);
+	}
 }
 

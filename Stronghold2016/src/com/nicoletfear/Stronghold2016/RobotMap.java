@@ -14,6 +14,8 @@ public class RobotMap {
 	public static final int backRightPort = 0;
 	public static final int frontLeftPort = 14;
 	public static final int frontRightPort = 1;
+	public static final int positionProfile = 0;
+	public static final int velocityProfile = 1;
 	
 	
     // For example to map the left and right motors, you could define the
