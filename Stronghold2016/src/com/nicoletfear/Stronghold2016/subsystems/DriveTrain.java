@@ -56,7 +56,7 @@ public class DriveTrain extends Subsystem {
 
 
 	public void drive(double leftInput, double rightInput) {
-		final double scaling = .5;
+		final double scaling = 1;
 		//scales between .5 and -.5
 		//did this because we don't know what the maximum speed of the motors is
 		double leftOutput = leftInput * scaling;
