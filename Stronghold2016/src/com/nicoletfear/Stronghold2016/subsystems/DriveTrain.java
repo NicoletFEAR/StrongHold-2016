@@ -54,12 +54,7 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void autoDrive(double speed) {
-    	frontLeft.set(-speed);
-    	frontRight.set(-speed);
-    	//used negative to invert speed
-    	//will be changed to non-hardcoded value
-    }
+    
     public void brake(){
     	//is a safe motor brake
     	Robot.driveTrain.drive(0, 0);
