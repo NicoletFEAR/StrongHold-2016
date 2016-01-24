@@ -23,6 +23,7 @@ public class AutonomousForwards extends Command {
     	timer.start();
     	//starts and initializes timer
     	Robot.driveTrain.drive(-1 , -1);
+    	//values inverted because it was driving backwards for some reason
     	if(timer.get() == 5000){
     		Robot.driveTrain.brake();
     		//stops bot

@@ -40,6 +40,7 @@ public class Robot extends IterativeRobot {
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         autonomousCommand = new AutonomousForwards();
+        //sets command to autonomous forwards
     }
 	
 	/**
@@ -68,6 +69,7 @@ public class Robot extends IterativeRobot {
         //autonomousCommand = (Command) chooser.getSelected();
     	//eventually we will use this
     	 autonomousCommand = new AutonomousForwards();
+    	 //sets command equal to autonomous forwards
     	
         
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
