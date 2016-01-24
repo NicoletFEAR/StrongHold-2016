@@ -1,6 +1,7 @@
 
 package com.nicoletfear.Stronghold2016.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import com.nicoletfear.Stronghold2016.Robot;
@@ -18,7 +19,15 @@ public class AutonomousForwards extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Timer timer = new Timer();
+    	timer.start();
+    	//starts and initializes timer
     	Robot.driveTrain.drive(-1 , -1);
+    	if(timer.get() == 5000){
+    		Robot.driveTrain.brake();
+    		//stops bot
+    	}
+    	//will have bot drive forwards for 5 seconds
     }
 
     // Called repeatedly when this Command is scheduled to run

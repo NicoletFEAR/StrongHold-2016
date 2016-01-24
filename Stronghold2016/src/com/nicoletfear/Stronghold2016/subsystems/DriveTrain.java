@@ -11,6 +11,7 @@
 
 package com.nicoletfear.Stronghold2016.subsystems;
 
+import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
 import com.nicoletfear.Stronghold2016.commands.*;
 
@@ -58,6 +59,10 @@ public class DriveTrain extends Subsystem {
     	frontRight.set(-speed);
     	//used negative to invert speed
     	//will be changed to non-hardcoded value
+    }
+    public void brake(){
+    	//is a safe motor brake
+    	Robot.driveTrain.drive(0, 0);
     }
 
 
