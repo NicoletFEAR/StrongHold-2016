@@ -19,16 +19,16 @@ public class AutonomousForwards extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Timer timer = new Timer();
-    	timer.start();
+    	//will have bot drive forwards for 5 seconds
+    	//Timer timer = new Timer();
+    	//timer.start();
     	//starts and initializes timer
     	Robot.driveTrain.drive(-1 , -1);
     	//values inverted because it was driving backwards for some reason
-    	if(timer.get() == 5000){
-    		Robot.driveTrain.brake();
-    		//stops bot
-    	}
-    	//will have bot drive forwards for 5 seconds
+    	Timer.delay(5);
+    	//waits for five seconds
+    	Robot.driveTrain.brake();
+    	//stops bot
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -55,9 +55,9 @@ public class DriveTrain extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void brake(){
-    	//is a safe motor brake
-    	Robot.driveTrain.drive(0, 0);
+	public void brake(){
+    	frontRight.set(0);
+    	frontLeft.set(0);
     }
 
 
