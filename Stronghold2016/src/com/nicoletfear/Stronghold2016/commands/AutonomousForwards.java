@@ -15,27 +15,18 @@ public class AutonomousForwards extends Command {
     public AutonomousForwards() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
+        //makes bot drive forwards for five seconds
         setTimeout(5);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//will have bot drive forwards for 5 seconds
-    	//Timer timer = new Timer();
-    	//timer.start();
-    	//starts and initializes timer
     	Robot.driveTrain.drive(-1 , -1);
     	//values inverted because it was driving backwards for some reason
-    	//Timer.delay(5);
-    	//Robot.driveTrain.brake();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Robot.driveTrain.autoDrive(.25);
-    	
-    	//runs autodrive method at speed .25
-    	//method in drivetrain subsystem
     }
 
     // Make this return true when this Command no longer needs to run execute()
