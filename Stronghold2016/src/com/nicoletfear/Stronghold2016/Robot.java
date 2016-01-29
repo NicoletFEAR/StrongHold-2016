@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.nicoletfear.Stronghold2016.commands.ExampleCommand;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 import com.nicoletfear.Stronghold2016.subsystems.ExampleSubsystem;
+import com.nicoletfear.Stronghold2016.subsystems.GameMech;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -22,6 +24,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
+	public static final GameMech gameMech = new GameMech();
 	public static OI oi;
 
     Command autonomousCommand;
