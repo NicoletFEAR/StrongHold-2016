@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import com.nicoletfear.Stronghold2016.commands.AutonomousBackwards;
 import com.nicoletfear.Stronghold2016.commands.AutonomousForwards;
-import com.nicoletfear.Stronghold2016.commands.ExampleCommand;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 import com.nicoletfear.Stronghold2016.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -37,10 +36,10 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new AutonomousForwards());
+        chooser.addDefault("Forwards", new AutonomousForwards());
         chooser.addObject("Backwards", new AutonomousBackwards());
 //        chooser.addObject("My Auto", new MyAutoCommand());
-        SmartDashboard.putData("Auto mode", chooser);
+        SmartDashboard.putData("Auto Selector", chooser);
         autonomousCommand = new AutonomousForwards();
         //sets command to autonomous forwards
     }
@@ -74,16 +73,18 @@ public class Robot extends IterativeRobot {
     	 //sets command equal to autonomous forwards
     	
         
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
+		String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
+		case "Forwards":
+			autonomousCommand = new AutonomousForwards();
 			break;
-		case "Default Auto":
+		case "Backwards":
+			autonomousCommand = new AutonomousBackwards();
+			break;
 		default:
-			autonomousCommand = new ExampleCommand();
+			autonomousCommand = new AutonomousForwards();
 			break;
-		} */
+		}
     	
     	// schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
