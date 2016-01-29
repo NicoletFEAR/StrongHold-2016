@@ -1,6 +1,7 @@
 
 package com.nicoletfear.Stronghold2016;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -37,6 +38,16 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        CameraServer camera = CameraServer.getInstance();
+   		camera.setQuality(50);
+   		while (true) {
+   			camera.startAutomaticCapture("cam1");
+   			camera.startAutomaticCapture();
+   			CameraServer.getInstance().setQuality(50);
+   	   		CameraServer.getInstance().startAutomaticCapture("cam1");
+   	   		CameraServer.getInstance().startAutomaticCapture();
+   		}
+
     }
 	
 	/**
