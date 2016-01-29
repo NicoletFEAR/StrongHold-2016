@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import com.nicoletfear.Stronghold2016.commands.AutonomousBackwards;
 import com.nicoletfear.Stronghold2016.commands.AutonomousForwards;
+import com.nicoletfear.Stronghold2016.commands.Backwards;
+import com.nicoletfear.Stronghold2016.commands.Forwards;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 import com.nicoletfear.Stronghold2016.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -40,7 +42,7 @@ public class Robot extends IterativeRobot {
         chooser.addObject("Backwards", new AutonomousBackwards());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto Selector", chooser);
-        autonomousCommand = new AutonomousForwards();
+        autonomousCommand = new Forwards();
         //sets command to autonomous forwards
     }
 	
