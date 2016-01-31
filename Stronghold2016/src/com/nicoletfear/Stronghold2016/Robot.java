@@ -6,9 +6,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.nicoletfear.Stronghold2016.commands.ExampleCommand;
+import com.nicoletfear.Stronghold2016.commands.RunNormal;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 import com.nicoletfear.Stronghold2016.subsystems.ExampleSubsystem;
-import com.nicoletfear.Stronghold2016.subsystems.GameMech;
+import com.nicoletfear.Stronghold2016.subsystems.Intake;
+import com.nicoletfear.Stronghold2016.subsystems.TestBench;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -24,7 +26,8 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
-	public static final GameMech gameMech = new GameMech();
+	public static final TestBench gameMech = new TestBench();
+	public static final Intake intake = new Intake();
 	public static OI oi;
 
     Command autonomousCommand;
@@ -65,8 +68,8 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        autonomousCommand = (Command) chooser.getSelected();
-        
+        //autonomousCommand = (Command) chooser.getSelected();
+        autonomousCommand = new RunNormal();
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
 		case "My Auto":

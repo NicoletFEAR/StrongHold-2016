@@ -11,10 +11,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class GameMech extends Subsystem {
-	public GameMech(){
+public class TestBench extends Subsystem {
+	public TestBench(){
 	}
 	CANTalon intakeMotor = new CANTalon(RobotMap.intakeMotorPort);
+	CANTalon positionMotor = new CANTalon(RobotMap.positionMotorPort);
+	CANTalon other = new CANTalon(1);
 
     
     // Put methods for controlling this subsystem
@@ -28,7 +30,10 @@ public class GameMech extends Subsystem {
     public void run(double input){
     	//final double scaling = 1;
     	double output = input;
-    	intakeMotor.set(output);
+    	intakeMotor.set(input);
+    	positionMotor.set(input);
+    	other.set(input);
+    	
     }
 }
 
