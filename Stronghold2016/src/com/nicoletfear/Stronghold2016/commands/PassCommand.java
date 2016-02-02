@@ -9,9 +9,9 @@ import com.nicoletfear.Stronghold2016.xbox.Buttons;
 /**
  *
  */
-public class IntakeCommand extends Command {
+public class PassCommand extends Command {
 
-    public IntakeCommand() {
+    public PassCommand() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.intake);
     }
@@ -23,9 +23,8 @@ public class IntakeCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.oi.aButton.whenPressed(new IntakeSpin());
-    	Robot.oi.aButton.whenReleased(new StopIntake());
-    	//when A is pressed, spins intake
+    	
+    	//when A is pressed, starts passing
     	//when A is released, stops intake from spinning
     }
 

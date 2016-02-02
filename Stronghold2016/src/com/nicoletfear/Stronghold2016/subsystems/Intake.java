@@ -4,7 +4,6 @@ package com.nicoletfear.Stronghold2016.subsystems;
 import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
 import com.nicoletfear.Stronghold2016.commands.IntakeCommand;
-import com.nicoletfear.Stronghold2016.commands.RunNormal;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Command;
@@ -28,9 +27,16 @@ public class Intake extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void intake(){
-    	if(Robot.oi.getA() == true)
+    	intakeMotor.set(-1);
+    }
+    public void stopIntake(){
+    	intakeMotor.set(0);
+    }
+    public void pass(){
+    	intakeMotor.set(.5);
+    }
+    public void shoot(){
     	intakeMotor.set(1);
-    	
     }
 }
 
