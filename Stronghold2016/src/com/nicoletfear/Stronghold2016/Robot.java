@@ -38,16 +38,6 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
-        CameraServer camera = CameraServer.getInstance();
-   		camera.setQuality(50);
-   		while (true) {
-   			camera.startAutomaticCapture("cam1");
-   			camera.startAutomaticCapture();
-   			CameraServer.getInstance().setQuality(50);
-   	   		CameraServer.getInstance().startAutomaticCapture("cam1");
-   	   		CameraServer.getInstance().startAutomaticCapture();
-   		}
-
     }
 	
 	/**
@@ -110,6 +100,10 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        CameraServer camera = CameraServer.getInstance();
+   		camera.setQuality(50);
+   		camera.startAutomaticCapture("cam1");
+   		camera.startAutomaticCapture();
     }
     
     /**
