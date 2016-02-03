@@ -3,7 +3,7 @@ package com.nicoletfear.Stronghold2016.subsystems;
 
 import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
-import com.nicoletfear.Stronghold2016.commands.IntakeCommand;
+import com.nicoletfear.Stronghold2016.commands.IntakeSpin;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,7 +22,6 @@ public class Intake extends Subsystem {
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new IntakeCommand());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
