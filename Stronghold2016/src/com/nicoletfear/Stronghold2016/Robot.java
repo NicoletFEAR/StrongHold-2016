@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.nicoletfear.Stronghold2016.commands.ExampleCommand;
+import com.nicoletfear.Stronghold2016.subsystems.Arm;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 import com.nicoletfear.Stronghold2016.subsystems.ExampleSubsystem;
 import com.nicoletfear.Stronghold2016.subsystems.Intake;
@@ -25,6 +26,7 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Intake intake = new Intake();
+	public static final Arm arm = new Arm();
 	public static OI oi;
 
     Command autonomousCommand;

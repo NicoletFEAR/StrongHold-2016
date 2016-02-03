@@ -16,7 +16,7 @@ public class RobotMap {
 	public static final int frontLeftPort = 42;
 	public static final int frontRightPort = 12;
 	public static final int intakeMotorPort = 15;
-	public static final int positionMotorPort = 3;
+	public static final int positionMotorPort = 1;
 	
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.

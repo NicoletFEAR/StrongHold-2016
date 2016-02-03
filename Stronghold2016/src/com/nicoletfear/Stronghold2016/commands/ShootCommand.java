@@ -9,16 +9,16 @@ import com.nicoletfear.Stronghold2016.xbox.Buttons;
 /**
  *
  */
-public class PassCommand extends Command {
+public class ShootCommand extends Command {
 
-    public PassCommand() {
+    public ShootCommand() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.intake.pass();
+    	Robot.intake.shoot();
     }
 
     // Called repeatedly when this Command is scheduled to run

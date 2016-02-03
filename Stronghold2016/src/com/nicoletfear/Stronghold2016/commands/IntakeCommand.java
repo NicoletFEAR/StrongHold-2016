@@ -4,28 +4,24 @@ package com.nicoletfear.Stronghold2016.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import com.nicoletfear.Stronghold2016.Robot;
-import com.nicoletfear.Stronghold2016.xbox.Buttons;
 
 /**
  *
  */
-public class PassCommand extends Command {
+public class IntakeCommand extends Command {
 
-    public PassCommand() {
+    public IntakeCommand() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.intake.pass();
+    	Robot.intake.intake();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	//when A is pressed, starts passing
-    	//when A is released, stops intake from spinning
     }
 
     // Make this return true when this Command no longer needs to run execute()
