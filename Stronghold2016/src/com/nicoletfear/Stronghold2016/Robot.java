@@ -24,10 +24,7 @@ public class Robot extends IterativeRobot {
 
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static OI oi;
-	int currSession;
-	int sessionfront;
-	int sessionback;
-	Image frame;
+	
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -41,32 +38,13 @@ public class Robot extends IterativeRobot {
         chooser = new SendableChooser();
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        CameraServer camera = CameraServer.getInstance();
+    	camera.setQuality(50);
+    	camera.startAutomaticCapture("cam1");
+    	camera.startAutomaticCapture();
     }
 	
-    public void camera(){
-    frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-    sessionfront = NIVision.IMAQdxOpenCamera("cam1", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
-    sessionback = NIVision.IMAQdxOpenCamera("cam2", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
-    currSession = sessionfront;
-    NIVision.IMAQdxConfigureGrab(currSession);
-    CameraServer camera = CameraServer.getInstance();
-	camera.setQuality(50);
-	camera.startAutomaticCapture("cam1");
-	camera.startAutomaticCapture();
-	if(OI.right1.getRawButton(1)){
-        if(currSession == sessionfront){
-     		  NIVision.IMAQdxStopAcquisition(currSession);
-		  currSession = sessionback;
-	          NIVision.IMAQdxConfigureGrab(currSession);
-	} else if(currSession == sessionback){
-    		  NIVision.IMAQdxStopAcquisition(currSession);
-     		  currSession = sessionfront;
-     		  NIVision.IMAQdxConfigureGrab(currSession);
-      }
-}
-	NIVision.IMAQdxGrab(currSession, frame, 1);
-	camera.setImage(frame);
-    }
+   
 	/**
      * This function is called once each time the robot enters Disabled mode.
      * You can use it to reset any subsystem information you want to clear when
@@ -126,8 +104,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
-        camera();  
+        Scheduler.getInstance().run();  
     }
     
     /**
