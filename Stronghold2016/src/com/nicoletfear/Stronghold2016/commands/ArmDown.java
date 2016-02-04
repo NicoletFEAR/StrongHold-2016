@@ -9,6 +9,8 @@ import com.nicoletfear.Stronghold2016.Robot;
  *
  */
 public class ArmDown extends Command {
+	
+	private boolean finished = false;
 
     public ArmDown() {
         // Use requires() here to declare subsystem dependencies
@@ -18,6 +20,9 @@ public class ArmDown extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.arm.armDown();
+    	if(!Robot.arm.downLimitSwitchPressed()){
+    		Robot.arm.armStop();
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run

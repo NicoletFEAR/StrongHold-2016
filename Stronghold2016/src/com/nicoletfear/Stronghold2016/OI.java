@@ -1,5 +1,6 @@
 package com.nicoletfear.Stronghold2016;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -49,6 +50,7 @@ public class OI {
         right1 = new Joystick(1);
         
         left0 = new Joystick(0);
+        
         
         //Button A = new JoystickButton(gameMech, 1);
         //1 is button A on xbox

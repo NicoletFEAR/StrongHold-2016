@@ -1,4 +1,7 @@
 package com.nicoletfear.Stronghold2016;
+
+import edu.wpi.first.wpilibj.DigitalInput;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -17,6 +20,17 @@ public class RobotMap {
 	public static final int frontRightPort = 12;
 	public static final int intakeMotorPort = 15;
 	public static final int positionMotorPort = 1;
+	public static final int limitSwitchTopPort = 8;
+	public static final int limitSwitchBottomPort = 117;
+	
+	public static DigitalInput limitSwitchTop;
+	public static DigitalInput limitSwitchBottom;
+	
+	public static void init(){
+		limitSwitchTop = new DigitalInput(limitSwitchTopPort);
+		limitSwitchBottom = new DigitalInput(limitSwitchBottomPort);
+	}
+
 	
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
