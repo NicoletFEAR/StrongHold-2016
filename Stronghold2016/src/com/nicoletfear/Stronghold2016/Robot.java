@@ -47,15 +47,8 @@ public class Robot extends IterativeRobot {
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
-        //limitSwitch = new DigitalInput(1);
+        limitSwitch = new DigitalInput(1);
     }
-	
-/*    public void operatorControl(){
-    	
-    	while (limitSwitch.get()){
-    		Timer.delay(10);
-    	}
-    }*/
 	/**
      * This function is called once each time the robot enters Disabled mode.
      * You can use it to reset any subsystem information you want to clear when
