@@ -11,7 +11,6 @@ import com.nicoletfear.Stronghold2016.commands.AutonomousForwards;
 import com.nicoletfear.Stronghold2016.commands.Backwards;
 import com.nicoletfear.Stronghold2016.commands.Forwards;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
-import com.nicoletfear.Stronghold2016.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -24,7 +23,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static OI oi;
 
@@ -40,7 +39,7 @@ public class Robot extends IterativeRobot {
         chooser = new SendableChooser();
         chooser.addDefault("Forwards", new AutonomousForwards());
         chooser.addObject("Backwards", new AutonomousBackwards());
-//        chooser.addObject("My Auto", new MyAutoCommand());
+//       chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto Selector", chooser);
         autonomousCommand = new Forwards();
         //sets command to autonomous forwards
@@ -70,25 +69,11 @@ public class Robot extends IterativeRobot {
 	 */
     public void autonomousInit() {
         autonomousCommand = (Command) chooser.getSelected();
-    	//eventually we will use this
-    	 //autonomousCommand = new AutonomousForwards();
-    	 //sets command equal to autonomous forwards
-    	
-        
-		String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "Forwards":
-			autonomousCommand = new AutonomousForwards();
-			break;
-		case "Backwards":
-			autonomousCommand = new AutonomousBackwards();
-			break;
-		default:
-			autonomousCommand = new AutonomousForwards();
-			break;
-		}
-    	
-    	// schedule the autonomous command (example)
+    /*   eventually we will use this
+    	 autonomousCommand = new AutonomousForwards();
+    	 sets command equal to autonomous forwards
+    	 schedule the autonomous command (example)
+    */
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
