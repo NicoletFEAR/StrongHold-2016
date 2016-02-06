@@ -9,6 +9,7 @@ import com.nicoletfear.Stronghold2016.Robot;
  *
  */
 public class ArmUp extends Command {
+	private boolean finished = false;
 
     public ArmUp() {
         // Use requires() here to declare subsystem dependencies
@@ -26,7 +27,9 @@ public class ArmUp extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.arm.upLimitSwitchPressed();
+    	if(Robot.arm.upLimitSwitchPressed())
+    		finished = true;
+        return finished;
     }
 
     // Called once after isFinished returns true

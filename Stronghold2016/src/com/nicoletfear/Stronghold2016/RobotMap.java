@@ -21,15 +21,12 @@ public class RobotMap {
 	public static final int intakeMotorPort = 15;
 	public static final int positionMotorPort = 1;
 	public static final int limitSwitchTopPort = 8;
-	public static final int limitSwitchBottomPort = 117;
+	public static final int limitSwitchBottomPort = 7;
 	
-	public static DigitalInput limitSwitchTop;// = new DigitalInput(limitSwitchTopPort);
-	public static DigitalInput limitSwitchBottom;// = new DigitalInput(limitSwitchBottomPort);
+
 	
-	public static void init(){
-		limitSwitchTop = new DigitalInput(limitSwitchTopPort);
-		limitSwitchBottom = new DigitalInput(limitSwitchBottomPort);
-	}
+	//I think that our error may be in here
+
 
 	
     // For example to map the left and right motors, you could define the

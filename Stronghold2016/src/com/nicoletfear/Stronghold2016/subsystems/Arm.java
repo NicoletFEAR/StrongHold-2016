@@ -1,6 +1,8 @@
 
 package com.nicoletfear.Stronghold2016.subsystems;
 
+import com.nicoletfear.Stronghold2016.OI;
+import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -15,8 +17,8 @@ public class Arm extends Subsystem {
 		
 	}
 	CANTalon positionMotor = new CANTalon(RobotMap.positionMotorPort);
-	DigitalInput limitSwitchTop = RobotMap.limitSwitchTop;
-	DigitalInput LimitSwitchBottom = RobotMap.limitSwitchBottom;
+	DigitalInput limitSwitchTop = Robot.oi.limitSwitchTop;
+	DigitalInput limitSwitchBottom = Robot.oi.limitSwitchBottom;
 	
     
     // Put methods for controlling this subsystem
@@ -36,14 +38,14 @@ public class Arm extends Subsystem {
     	positionMotor.set(0);
     }
     public boolean upLimitSwitchPressed(){
-    	if(RobotMap.limitSwitchTop.get() == true){
+    	if(OI.limitSwitchTop.get()){
     		return true;
     	}else{
     		return false;
     	}
     }
     public boolean downLimitSwitchPressed(){
-    	if(RobotMap.limitSwitchBottom.get() == true){
+    	if(OI.limitSwitchBottom.get()){
     		return true;
     	}else{
     		return false;

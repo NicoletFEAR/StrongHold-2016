@@ -30,6 +30,11 @@ public class Robot extends IterativeRobot {
 	public static final Intake intake = new Intake();
 	public static final Arm arm = new Arm();
 	public static OI oi;
+	
+	//always do this
+	//dont ask why
+	public String Skynet = "Sentient";
+	public Boolean SkynetEnabled = true;
 
     Command autonomousCommand;
     SendableChooser chooser;
