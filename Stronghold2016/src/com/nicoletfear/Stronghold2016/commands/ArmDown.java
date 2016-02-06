@@ -20,9 +20,9 @@ public class ArmDown extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.arm.armDown();
-    	if(!Robot.arm.downLimitSwitchPressed()){
+    	/*if(!Robot.arm.downLimitSwitchPressed()){
     		Robot.arm.armStop();
-    	}
+    	}*/
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,7 +31,7 @@ public class ArmDown extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.arm.downLimitSwitchPressed();
     }
 
     // Called once after isFinished returns true

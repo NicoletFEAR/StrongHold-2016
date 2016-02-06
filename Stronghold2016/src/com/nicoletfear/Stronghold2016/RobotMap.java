@@ -23,8 +23,8 @@ public class RobotMap {
 	public static final int limitSwitchTopPort = 8;
 	public static final int limitSwitchBottomPort = 117;
 	
-	public static DigitalInput limitSwitchTop;
-	public static DigitalInput limitSwitchBottom;
+	public static DigitalInput limitSwitchTop;// = new DigitalInput(limitSwitchTopPort);
+	public static DigitalInput limitSwitchBottom;// = new DigitalInput(limitSwitchBottomPort);
 	
 	public static void init(){
 		limitSwitchTop = new DigitalInput(limitSwitchTopPort);

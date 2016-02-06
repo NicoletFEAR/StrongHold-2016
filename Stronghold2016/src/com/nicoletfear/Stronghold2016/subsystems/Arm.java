@@ -36,18 +36,17 @@ public class Arm extends Subsystem {
     	positionMotor.set(0);
     }
     public boolean upLimitSwitchPressed(){
-    	if(RobotMap.limitSwitchTop.get()){
-    		return false;
-    	}else{
+    	if(RobotMap.limitSwitchTop.get() == true){
     		return true;
+    	}else{
+    		return false;
     	}
     }
     public boolean downLimitSwitchPressed(){
-    	if(RobotMap.limitSwitchBottom.get()){
-    		return false;
-    	}else{
+    	if(RobotMap.limitSwitchBottom.get() == true){
     		return true;
+    	}else{
+    		return false;
     	}
     }
 }
-
