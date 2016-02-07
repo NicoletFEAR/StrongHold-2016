@@ -9,11 +9,12 @@ import com.nicoletfear.Stronghold2016.Robot;
  *
  */
 public class ArmUp extends Command {
-	private boolean finished = false;
+	private boolean finished;
 
     public ArmUp() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.arm);
+        finished = false;
     }
 
     // Called just before this Command runs the first time

@@ -13,13 +13,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Arm extends Subsystem {
-	public Arm(){
-		
-	}
-	CANTalon positionMotor = new CANTalon(RobotMap.positionMotorPort);
-	DigitalInput limitSwitchTop = Robot.oi.limitSwitchTop;
-	DigitalInput limitSwitchBottom = Robot.oi.limitSwitchBottom;
 	
+	//declare variables here
+	CANTalon positionMotor;
+	DigitalInput limitSwitchTop;
+	DigitalInput limitSwitchBottom;
+	
+	public Arm(){
+		//assign variables her
+		positionMotor = new CANTalon(RobotMap.positionMotorPort);
+		limitSwitchTop = OI.limitSwitchTop;
+		limitSwitchBottom = OI.limitSwitchBottom;
+	}
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

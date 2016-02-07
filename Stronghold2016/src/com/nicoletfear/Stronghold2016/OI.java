@@ -4,12 +4,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import com.nicoletfear.Stronghold2016.xbox.Buttons;
 import com.nicoletfear.Stronghold2016.commands.ArmDown;
 import com.nicoletfear.Stronghold2016.commands.ArmUp;
-import com.nicoletfear.Stronghold2016.commands.ExampleCommand;
 import com.nicoletfear.Stronghold2016.commands.IntakeCommand;
 import com.nicoletfear.Stronghold2016.commands.PassCommand;
 import com.nicoletfear.Stronghold2016.commands.ShootCommand;
