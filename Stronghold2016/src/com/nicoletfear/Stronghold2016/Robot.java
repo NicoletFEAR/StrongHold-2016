@@ -1,16 +1,19 @@
 
 package com.nicoletfear.Stronghold2016;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
+import com.nicoletfear.Stronghold2016.subsystems.Arm;
 import com.nicoletfear.Stronghold2016.commands.AutonomousBackwards;
 import com.nicoletfear.Stronghold2016.commands.AutonomousForwards;
 import com.nicoletfear.Stronghold2016.commands.Backwards;
 import com.nicoletfear.Stronghold2016.commands.Forwards;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
+import com.nicoletfear.Stronghold2016.subsystems.Intake;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -24,7 +27,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final DriveTrain driveTrain = new DriveTrain();
+	public static final Intake intake = new Intake();
+	public static final Arm arm = new Arm();
 	public static OI oi;
+	
+	//always do this
+	//dont ask why
+	public String Skynet = "Sentient";
+	public Boolean SkynetEnabled = true;
 
 	Command autonomousCommand;
 	SendableChooser chooser;
@@ -33,6 +43,7 @@ public class Robot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
+    
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser();
@@ -44,6 +55,7 @@ public class Robot extends IterativeRobot {
 		// sets command to autonomous forwards
 	}
 
+    }
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
