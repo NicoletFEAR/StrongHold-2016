@@ -1,6 +1,7 @@
 
 package com.nicoletfear.Stronghold2016.subsystems;
 
+import com.nicoletfear.Stronghold2016.OI;
 import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
 import com.nicoletfear.Stronghold2016.commands.IntakeCommand;
@@ -37,6 +38,13 @@ public class Intake extends Subsystem {
     }
     public void shoot(){
     	intakeMotor.set(RobotMap.shootSpeed);
+    }
+    public boolean intakeLimitSwitchPressed(){
+    	if(OI.limitSwitchIntake.get()){
+    		return false;
+    	}else{
+    		return true;
+    	}
     }
 }
 
