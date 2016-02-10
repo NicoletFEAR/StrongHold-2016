@@ -44,16 +44,16 @@ public class Arm extends Subsystem {
     }
     public boolean upLimitSwitchPressed(){
     	if(OI.limitSwitchTop.get()){
-    		return true;
-    	}else{
     		return false;
+    	}else{
+    		return true;
     	}
     }
     public boolean downLimitSwitchPressed(){
     	if(OI.limitSwitchBottom.get()){
-    		return true;
-    	}else{
     		return false;
+    	}else{
+    		return true;
     	}
     }
 }
