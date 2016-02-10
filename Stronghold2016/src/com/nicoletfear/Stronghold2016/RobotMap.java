@@ -23,6 +23,12 @@ public class RobotMap {
 	public static final int limitSwitchTopPort = 8;
 	public static final int limitSwitchBottomPort = 7;
 	
+	public static final double armSpeed = .2;
+	public static final double intakeSpeed = -1;
+	public static final double passSpeed = .5;
+	public static final double shootSpeed = 1;
+
+	
 
 	
 	//I think that our error may be in here

@@ -7,7 +7,7 @@ import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.xbox.Buttons;
 
 /**
- *
+ *this command passes the ball
  */
 public class PassCommand extends Command {
 

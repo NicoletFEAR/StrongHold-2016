@@ -3,14 +3,11 @@ package com.nicoletfear.Stronghold2016;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import com.nicoletfear.Stronghold2016.commands.ExampleCommand;
 import com.nicoletfear.Stronghold2016.subsystems.Arm;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
-import com.nicoletfear.Stronghold2016.subsystems.ExampleSubsystem;
 import com.nicoletfear.Stronghold2016.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -25,7 +22,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Intake intake = new Intake();
 	public static final Arm arm = new Arm();
@@ -43,16 +39,13 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    DigitalInput limitSwitch;
     
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
-        limitSwitch = new DigitalInput(1);
     }
 	/**
      * This function is called once each time the robot enters Disabled mode.

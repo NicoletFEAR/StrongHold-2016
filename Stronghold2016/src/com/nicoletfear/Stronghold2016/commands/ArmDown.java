@@ -6,16 +6,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import com.nicoletfear.Stronghold2016.Robot;
 
 /**
- *
+ *Command that lowers arm. It stops when the user releases the
+ *lower limit switch or releases the button
  */
 public class ArmDown extends Command {
 	
-	private boolean finished;
-
     public ArmDown() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.arm);
-        finished = false;
     }
 
     // Called just before this Command runs the first time

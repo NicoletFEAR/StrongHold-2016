@@ -20,7 +20,7 @@ public class Arm extends Subsystem {
 	DigitalInput limitSwitchBottom;
 	
 	public Arm(){
-		//assign variables her
+		//assign variables here
 		positionMotor = new CANTalon(RobotMap.positionMotorPort);
 		limitSwitchTop = OI.limitSwitchTop;
 		limitSwitchBottom = OI.limitSwitchBottom;
@@ -34,14 +34,17 @@ public class Arm extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void armUp(){
-    	positionMotor.set(.2);
+    	positionMotor.set(-RobotMap.armSpeed);
     }
+    //moves arm up
     public void armDown(){
-    	positionMotor.set(-.2);
+    	positionMotor.set(RobotMap.armSpeed);
     }
+    //moves arm down
     public void armStop(){
     	positionMotor.set(0);
     }
+    //stops arm
     public boolean upLimitSwitchPressed(){
     	if(OI.limitSwitchTop.get()){
     		return false;
@@ -49,6 +52,8 @@ public class Arm extends Subsystem {
     		return true;
     	}
     }
+    //returns true when pressed
+    
     public boolean downLimitSwitchPressed(){
     	if(OI.limitSwitchBottom.get()){
     		return false;
@@ -56,4 +61,5 @@ public class Arm extends Subsystem {
     		return true;
     	}
     }
+    //returns true when pressed
 }

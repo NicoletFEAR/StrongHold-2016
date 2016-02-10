@@ -26,16 +26,17 @@ public class Intake extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void intake(){
-    	intakeMotor.set(-7);
+    	intakeMotor.set(RobotMap.intakeSpeed);
     }
     public void stopIntake(){
     	intakeMotor.set(0);
+    	//zero is stop
     }
     public void pass(){
-    	intakeMotor.set(.5);
+    	intakeMotor.set(RobotMap.passSpeed);
     }
     public void shoot(){
-    	intakeMotor.set(1);
+    	intakeMotor.set(RobotMap.shootSpeed);
     }
 }
 

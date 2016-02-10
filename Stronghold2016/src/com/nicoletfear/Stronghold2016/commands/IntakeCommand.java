@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import com.nicoletfear.Stronghold2016.Robot;
 
 /**
- *
+ *this command intakes the ball at maximum speed
  */
 public class IntakeCommand extends Command {
 

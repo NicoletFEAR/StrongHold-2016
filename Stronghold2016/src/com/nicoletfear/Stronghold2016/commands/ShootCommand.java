@@ -7,7 +7,7 @@ import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.xbox.Buttons;
 
 /**
- *
+ *this command shoots the ball. It is faster than the pass command
  */
 public class ShootCommand extends Command {
 

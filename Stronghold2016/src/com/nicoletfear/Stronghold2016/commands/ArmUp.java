@@ -6,15 +6,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import com.nicoletfear.Stronghold2016.Robot;
 
 /**
- *
+ *Command that raises arm. It stops when the user releases the
+ *upper limit switch or releases the button
  */
 public class ArmUp extends Command {
-	private boolean finished;
-
+	
     public ArmUp() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.arm);
-        finished = false;
     }
 
     // Called just before this Command runs the first time
