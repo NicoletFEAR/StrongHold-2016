@@ -12,6 +12,8 @@
 package com.nicoletfear.Stronghold2016.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import com.nicoletfear.Stronghold2016.Robot;
 
 /**
@@ -39,6 +41,8 @@ public class  Drive extends Command {
     	double rightInput = Robot.oi.getRight().getY();
     	double leftInput = Robot.oi.getLeft().getY();
     	Robot.driveTrain.drive(leftInput, rightInput);
+		SmartDashboard.putNumber("Potentiometer Value", Robot.oi.pot.get());
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
