@@ -29,6 +29,7 @@ public class OI {
     public static Button leftBumper;
 	public static DigitalInput limitSwitchTop;
 	public static DigitalInput limitSwitchBottom;
+	public static DigitalInput limitSwitchIntake;
 
 
     public OI() {
@@ -44,6 +45,7 @@ public class OI {
     	//construct sensors here 
     	limitSwitchTop = new DigitalInput(RobotMap.limitSwitchTopPort);
 		limitSwitchBottom = new DigitalInput(RobotMap.limitSwitchBottomPort);
+		limitSwitchIntake = new DigitalInput(RobotMap.limitSwitchIntakePort);
 
 
 		//tie buttons to commands here
