@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import com.nicoletfear.Stronghold2016.Robot;
+import com.nicoletfear.Stronghold2016.RobotMap;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 
 /**
@@ -15,13 +16,14 @@ public class Backwards extends Command {
     public Backwards() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
-        setTimeout(5);
+        setTimeout(RobotMap.autoTimer);
         //will have bot drive forwards for 5 seconds
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.drive(1 , 1);
+    	
+    	Robot.driveTrain.drive(RobotMap.autoSpeed , RobotMap.autoSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run

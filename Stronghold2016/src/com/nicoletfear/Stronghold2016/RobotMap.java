@@ -12,24 +12,32 @@ public class RobotMap {
 	
 	//CANTalon ports
 	// use instead of magic numbers
-	//will be updated once we have a finished bot
+	//are final ports
 	
-	public static final int backLeftPort = 0;
-	public static final int backRightPort = 7;
-	public static final int frontLeftPort = 42;
-	public static final int frontRightPort = 12;
-	public static final int intakeMotorPort = 15;
-	public static final int positionMotorPort = 1;
+	public static final int backLeftPort = 15;
+	public static final int backRightPort = 12;
+	public static final int frontLeftPort = 14;
+	public static final int frontRightPort = 13;
+	public static final int intakeMotorPort = 17;
+	public static final int positionMotorPort = 16;
 	public static final int limitSwitchTopPort = 8;
 	public static final int limitSwitchBottomPort = 7;
 	public static final int limitSwitchIntakePort = 6;
 	
+	//game mech constants
+	//use instead of hard-coded values
 	public static final double armSpeed = .2;
 	public static final double intakeSpeed = -1;
 	public static final double passSpeed = .5;
 	public static final double shootSpeed = 1;
 
+	//autonomous constants
+	//use instead of hard-coded numbers
+	public static final double autoSpeed = 1;
+	public static final double autoTimer = 5;
 	
+	
+	public static final double scaling = 1;
 
 	
 	//I think that our error may be in here
