@@ -59,13 +59,15 @@ public class AutonomousDistancePID extends Command {
     
     private boolean leftIsWithinError(){
     	double closedLoopError = revs - Robot.driveTrain.frontLeft.get();
-    	double error = Robot.driveTrain.error; //error is probably in wrong units (not revolutions)
+    	double error = 1 / RobotMap.ERROR_CONSTANT;
     	boolean temp = Math.abs(closedLoopError) < error;
     	return temp;
     }
     
     private boolean rightIsWithinError(){
-    	boolean temp = Math.abs(Robot.driveTrain.frontRight.getClosedLoopError()) < Robot.driveTrain.error;
+    	double closedLoopError = revs - Robot.driveTrain.frontRight.get();
+    	double error = 1 / RobotMap.ERROR_CONSTANT;
+    	boolean temp = Math.abs(closedLoopError) < error;
     	return temp;
     }
 }
