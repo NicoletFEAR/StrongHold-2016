@@ -34,7 +34,7 @@ public class RobotMap {
 	public static final double autoSpeed = 1;
 	public static final double autoTimer = 5;
 	
-	
+	//scaling constant for drive method
 	public static final double scaling = 1;
 	
 	//this is PID stuff
