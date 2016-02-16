@@ -1,7 +1,5 @@
 package com.nicoletfear.Stronghold2016;
 
-import edu.wpi.first.wpilibj.DigitalInput;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -47,7 +45,7 @@ public class RobotMap {
 	public static final double OPTION8_GEARBOX_RATIO = 8.45;
 	public static final double ERROR_CONSTANT = 5;  //Allowable error, 360 / this = error in degrees
 	//public static final double P = 0.005;
-	public static final double P = 0.0025;
+	public static final double P = 0.005;
 	//public static final double I = 0.001;
 	public static final double I = 0.0;
 	//public static final double D = 0.0001;
