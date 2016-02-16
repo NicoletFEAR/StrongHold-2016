@@ -47,9 +47,12 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser();
+		
+		//add autonomous commands here
 		chooser.addDefault("Forwards", new AutonomousForwards());
 		chooser.addObject("Backwards", new AutonomousBackwards());
 		chooser.addObject("PID Distance 10 Feet", new AutonomousPIDForwards());
+		
 		// makes objects to be seen in SmartDashboard
 		SmartDashboard.putData("Auto Selector", chooser);
 		autonomousCommand = new Forwards();
