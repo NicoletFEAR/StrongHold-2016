@@ -45,7 +45,7 @@ public class RobotMap {
 	public static final double OPTION8_GEARBOX_RATIO = 8.45;
 	public static final double ERROR_CONSTANT = 45;  //Allowable error, 360 / this = error in degrees
 	//public static final double P = 0.005;
-	public static final double P = 0.5;
+	public static final double P = 0.005;
 	//public static final double I = 0.001;
 	public static final double I = 0.001;
 	//public static final double D = 0.0001;
