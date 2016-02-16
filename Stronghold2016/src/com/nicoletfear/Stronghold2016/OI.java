@@ -8,6 +8,7 @@ import com.nicoletfear.Stronghold2016.commands.ArmDown;
 import com.nicoletfear.Stronghold2016.commands.ArmUp;
 import com.nicoletfear.Stronghold2016.commands.IntakeCommand;
 import com.nicoletfear.Stronghold2016.commands.PassCommand;
+import com.nicoletfear.Stronghold2016.commands.SetHome;
 import com.nicoletfear.Stronghold2016.commands.ShootCommand;
 
 /**
@@ -23,8 +24,10 @@ public class OI {
     public static Button aButton;
     public static Button bButton;
     public static Button yButton;
+    public static Button xButton;
     public static Button rightBumper;
     public static Button leftBumper;
+    public static Button start;
 	public static DigitalInput limitSwitchTop;
 	public static DigitalInput limitSwitchBottom;
 	public static DigitalInput limitSwitchIntake;
@@ -39,6 +42,9 @@ public class OI {
     	yButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.Y);
     	rightBumper = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.RightBump);
     	leftBumper = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.LeftBump);
+    	xButton = new JoystickButton(gameMech, com.nicoletfear.Stronghold2016.xbox.Buttons.X);
+    	start = new JoystickButton(gameMech, com.nicoletfear.Stronghold2016.xbox.Buttons.Start);
+
     	
     	//construct sensors here 
     	limitSwitchTop = new DigitalInput(RobotMap.limitSwitchTopPort);
@@ -47,13 +53,15 @@ public class OI {
 
 
 		//tie buttons to commands here
+		xButton.whenPressed(new SetHome());
     	aButton.whileHeld(new IntakeCommand());
     	bButton.whileHeld(new PassCommand());
     	yButton.whileHeld(new ShootCommand());
     	rightBumper.whileHeld(new ArmUp());
     	leftBumper.whileHeld(new ArmDown());
-    	//runs commands when buttons pressed
     	
+    	
+    	//runs commands when buttons pressed
         right1 = new Joystick(1);
         
         left0 = new Joystick(0);

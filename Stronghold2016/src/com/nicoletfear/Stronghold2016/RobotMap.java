@@ -18,8 +18,8 @@ public class RobotMap {
 	public static final int backRightPort = 7;
 	public static final int frontLeftPort = 42;
 	public static final int frontRightPort = 12;
-	public static final int intakeMotorPort = 15;
-	public static final int positionMotorPort = 1;
+	public static final int intakeMotorPort = 1;
+	public static final int positionMotorPort = 15;
 	public static final int limitSwitchTopPort = 8;
 	public static final int limitSwitchBottomPort = 7;
 	public static final int limitSwitchIntakePort = 6;

@@ -8,6 +8,7 @@ import com.nicoletfear.Stronghold2016.RobotMap;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Arm extends Subsystem {
 	CANTalon positionMotor;
 	DigitalInput limitSwitchTop;
 	DigitalInput limitSwitchBottom;
+	public static double home;
 	
 	public Arm(){
 		//assign variables here
@@ -32,6 +34,15 @@ public class Arm extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    
+    public void setHome(double position){
+    	home = position;
+    	SmartDashboard.putNumber("Home", home);
+    }
+    
+    public double getPosition(){
+    	return positionMotor.getEncPosition();
     }
     public void armUp(){
     	positionMotor.set(-RobotMap.armSpeed);
