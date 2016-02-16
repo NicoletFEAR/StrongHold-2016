@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutonomousDistancePID extends Command {
+public class DistancePID extends Command {
 
 	public double revs;
 	
-    public AutonomousDistancePID(double feet) {
+    public DistancePID(double feet) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
