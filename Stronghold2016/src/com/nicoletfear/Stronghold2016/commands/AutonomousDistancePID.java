@@ -23,19 +23,19 @@ public class AutonomousDistancePID extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.backLeft.changeControlMode(TalonControlMode.Position);
-    	Robot.driveTrain.backRight.changeControlMode(TalonControlMode.Position);
-    	Robot.driveTrain.backLeft.setEncPosition(0);
-    	Robot.driveTrain.backRight.setEncPosition(0);
+    	Robot.driveTrain.frontLeft.changeControlMode(TalonControlMode.Position);
+    	Robot.driveTrain.frontRight.changeControlMode(TalonControlMode.Position);
+    	Robot.driveTrain.frontLeft.setEncPosition(0);
+    	Robot.driveTrain.frontRight.setEncPosition(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(!leftIsWithinError()){
-    		Robot.driveTrain.backLeft.set(revs);
+    		Robot.driveTrain.frontLeft.set(revs);
     	}
     	if(!rightIsWithinError()){
-    		Robot.driveTrain.backRight.set(revs);
+    		Robot.driveTrain.frontRight.set(revs);
     	}
     }
 
@@ -58,10 +58,14 @@ public class AutonomousDistancePID extends Command {
     }
     
     private boolean leftIsWithinError(){
-    	return Math.abs(revs - Robot.driveTrain.backLeft.get()) < Robot.driveTrain.error;
+    	double closedLoopError = revs - Robot.driveTrain.frontLeft.get();
+    	double error = Robot.driveTrain.error; //error is probably in wrong units (not revolutions)
+    	boolean temp = Math.abs(closedLoopError) < error;
+    	return temp;
     }
     
     private boolean rightIsWithinError(){
-    	return Math.abs(revs - Robot.driveTrain.backRight.get()) < Robot.driveTrain.error;
+    	boolean temp = Math.abs(Robot.driveTrain.frontRight.getClosedLoopError()) < Robot.driveTrain.error;
+    	return temp;
     }
 }

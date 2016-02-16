@@ -43,13 +43,13 @@ public class RobotMap {
 	public static final int TESTBENCH_GEARBOX_RATIO = 71;
 	public static final int OPTION8_CODES_PER_REV = 7;
 	public static final double OPTION8_GEARBOX_RATIO = 8.45;
-	public static final double ERROR_CONSTANT = 5;  //Allowable error, 360 / this = error in degrees
+	public static final double ERROR_CONSTANT = 45;  //Allowable error, 360 / this = error in degrees
 	//public static final double P = 0.005;
-	public static final double P = 0.005;
+	public static final double P = 0.5;
 	//public static final double I = 0.001;
-	public static final double I = 0.0;
+	public static final double I = 0.001;
 	//public static final double D = 0.0001;
-	public static final double D = 0.0;
+	public static final double D = 0.0001;
 	public static final double F = 0.0;
 
 
