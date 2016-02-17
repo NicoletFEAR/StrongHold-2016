@@ -49,7 +49,9 @@ public class OI {
 
 
 		//tie buttons to commands here
-    	aButton.whileHeld(new IntakeCommand());
+		if(limitSwitchIntake.get() == true)
+			aButton.whileHeld(new IntakeCommand());
+		
     	bButton.whileHeld(new PassCommand());
     	yButton.whileHeld(new ShootCommand());
     	rightBumper.whileHeld(new ArmUp());
