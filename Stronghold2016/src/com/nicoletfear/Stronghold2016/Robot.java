@@ -1,6 +1,7 @@
 
 package com.nicoletfear.Stronghold2016;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -53,6 +54,10 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto Selector", chooser);
 		autonomousCommand = new Forwards();
 		// sets command to autonomous forwards
+		 CameraServer camera = CameraServer.getInstance();
+	    camera.setQuality(50);
+	    camera.startAutomaticCapture("cam1");
+	    camera.startAutomaticCapture();
 	}
 
 	/**
