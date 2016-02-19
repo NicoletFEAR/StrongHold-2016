@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
+
 import com.nicoletfear.Stronghold2016.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -22,6 +24,8 @@ public class OI {
     public static Button yButton;
     public static Button rightBumper;
     public static Button leftBumper;
+    public static Trigger leftTrigger;
+    public static Trigger rightTrigger;
 	public static DigitalInput limitSwitchTop;
 	public static DigitalInput limitSwitchBottom;
 	public static DigitalInput limitSwitchIntake;
@@ -36,7 +40,6 @@ public class OI {
     	yButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.Y);
     	rightBumper = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.RightBump);
     	leftBumper = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.LeftBump);
-    	
     	//construct sensors here 
     	limitSwitchTop = new DigitalInput(RobotMap.limitSwitchTopPort);
 		limitSwitchBottom = new DigitalInput(RobotMap.limitSwitchBottomPort);
@@ -47,8 +50,8 @@ public class OI {
     	aButton.whileHeld(new IntakeCommand());
     	bButton.whileHeld(new PassCommand());
     	yButton.whileHeld(new ShootCommand());
-    	rightBumper.whileHeld(new ArmUp());
-    	leftBumper.whileHeld(new ArmDown());
+    	leftBumper.whileHeld(new ArmUp());
+    	rightBumper.whileHeld(new ArmDown());
     	//runs commands when buttons pressed
     	
         right1 = new Joystick(1);
