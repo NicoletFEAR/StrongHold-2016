@@ -26,7 +26,7 @@ public class RobotMap {
 	
 	//game mech constants
 	//use instead of hard-coded values
-	public static final double armSpeed = .2;
+	public static final double armSpeed = .35;
 	public static final double intakeSpeed = -1;
 	public static final double passSpeed = .5;
 	public static final double shootSpeed = 1;
