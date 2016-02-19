@@ -4,13 +4,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import com.nicoletfear.Stronghold2016.commands.ArmDown;
-import com.nicoletfear.Stronghold2016.commands.ArmUp;
+import com.nicoletfear.Stronghold2016.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import com.nicoletfear.Stronghold2016.commands.IntakeCommand;
-import com.nicoletfear.Stronghold2016.commands.PassCommand;
-import com.nicoletfear.Stronghold2016.commands.ShootCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -60,9 +55,17 @@ public class OI {
         
         left0 = new Joystick(0);
         
-        
-        //Button A = new JoystickButton(gameMech, 1);
-        //1 is button A on xbox
+        SmartDashboard.putData("Arm Up", new ArmUp());
+        SmartDashboard.putData("Arm Down", new ArmDown());
+        SmartDashboard.putData("Pass", new PassCommand());
+        SmartDashboard.putData("Backwards", new Backwards());
+        SmartDashboard.putData("Shoot", new ShootCommand());
+        SmartDashboard.putData("Intake", new IntakeCommand());
+        SmartDashboard.putData("Forwards", new Forwards());
+        /*Button A = new JoystickButton(gameMech, 1);
+        The Everything is Awesome code
+         1 is button A on xbox
+         */
         
 
 	    
