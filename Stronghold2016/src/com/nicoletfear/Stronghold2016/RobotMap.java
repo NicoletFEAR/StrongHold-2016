@@ -28,7 +28,7 @@ public class RobotMap {
 	//use instead of hard-coded values
 	public static final double armSpeed = .5;
 	public static final double intakeSpeed = -1;
-	public static final double passSpeed = .5;
+	public static final double passSpeed = .75;
 	public static final double shootSpeed = 1;
 
 	//autonomous constants

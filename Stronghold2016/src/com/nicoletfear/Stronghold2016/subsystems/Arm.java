@@ -34,11 +34,11 @@ public class Arm extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void armUp(){
-    	positionMotor.set(-RobotMap.armSpeed);
+    	positionMotor.set(RobotMap.armSpeed);
     }
     //moves arm up
     public void armDown(){
-    	positionMotor.set(RobotMap.armSpeed);
+    	positionMotor.set(-RobotMap.armSpeed);
     }
     //moves arm down
     public void armStop(){
