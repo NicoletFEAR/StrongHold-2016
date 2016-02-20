@@ -1,20 +1,22 @@
 
 package com.nicoletfear.Stronghold2016;
 
+import com.nicoletfear.Stronghold2016.commands.AutonomousBackwards;
+import com.nicoletfear.Stronghold2016.commands.AutonomousForwards;
+import com.nicoletfear.Stronghold2016.commands.AutonomousMoat;
+import com.nicoletfear.Stronghold2016.commands.AutonomousRamparts;
+import com.nicoletfear.Stronghold2016.commands.AutonomousRockWall;
+import com.nicoletfear.Stronghold2016.commands.AutonomousRockyTerrain;
+import com.nicoletfear.Stronghold2016.commands.Forwards;
+import com.nicoletfear.Stronghold2016.subsystems.Arm;
+import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
+import com.nicoletfear.Stronghold2016.subsystems.Intake;
+
 import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import com.nicoletfear.Stronghold2016.subsystems.Arm;
-import com.nicoletfear.Stronghold2016.commands.AutonomousBackwards;
-import com.nicoletfear.Stronghold2016.commands.AutonomousForwards;
-import com.nicoletfear.Stronghold2016.commands.Backwards;
-import com.nicoletfear.Stronghold2016.commands.Forwards;
-import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
-import com.nicoletfear.Stronghold2016.subsystems.Intake;
-
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -50,6 +52,10 @@ public class Robot extends IterativeRobot {
 		chooser = new SendableChooser();
 		chooser.addDefault("Forwards", new AutonomousForwards());
 		chooser.addObject("Backwards", new AutonomousBackwards());
+		chooser.addObject("Rock Wall", new AutonomousRockWall());
+		chooser.addObject("Moat", new AutonomousMoat());
+		chooser.addObject("Ramparts", new AutonomousRamparts());
+		chooser.addObject("Rocky Terrain", new AutonomousRockyTerrain());
 		// makes objects to be seen in SmartDashboard
 		SmartDashboard.putData("Auto Selector", chooser);
 		autonomousCommand = new Forwards();
