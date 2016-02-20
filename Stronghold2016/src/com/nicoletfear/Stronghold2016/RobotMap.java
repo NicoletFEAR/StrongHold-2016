@@ -18,15 +18,15 @@ public class RobotMap {
 	public static final int backRightPort = 12;
 	public static final int frontLeftPort = 14;
 	public static final int frontRightPort = 13;
-	public static final int intakeMotorPort = 2; //changed to port 2 on 2/19/16
-	public static final int positionMotorPort = 3; //changed to port 3 on 2/19/16
+	public static final int intakeMotorPort = 2;
+	public static final int positionMotorPort = 3;
 	public static final int limitSwitchTopPort = 8;
 	public static final int limitSwitchBottomPort = 7;
 	public static final int limitSwitchIntakePort = 6;
 	
 	//game mech constants
 	//use instead of hard-coded values
-	public static final double armSpeed = .35;
+	public static final double armSpeed = .5;
 	public static final double intakeSpeed = -1;
 	public static final double passSpeed = .5;
 	public static final double shootSpeed = 1;
@@ -40,7 +40,6 @@ public class RobotMap {
 	public static final double scaling = 1;
 
 	
-	//I think that our error may be in here
 
 
 	

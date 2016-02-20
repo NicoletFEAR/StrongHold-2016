@@ -27,17 +27,17 @@ public class Intake extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void intake(){
-    	intakeMotor.set(RobotMap.intakeSpeed);
+    	intakeMotor.set(-RobotMap.intakeSpeed);
     }
     public void stopIntake(){
     	intakeMotor.set(0);
     	//zero is stop
     }
     public void pass(){
-    	intakeMotor.set(RobotMap.passSpeed);
+    	intakeMotor.set(-RobotMap.passSpeed);
     }
     public void shoot(){
-    	intakeMotor.set(RobotMap.shootSpeed);
+    	intakeMotor.set(-RobotMap.shootSpeed);
     }
     public boolean intakeLimitSwitchPressed(){
     	if(OI.limitSwitchIntake.get()){
