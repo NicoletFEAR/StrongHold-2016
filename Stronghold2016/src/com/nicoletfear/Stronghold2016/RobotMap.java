@@ -33,7 +33,7 @@ public class RobotMap {
 
 	//autonomous constants
 	//use instead of hard-coded numbers
-	public static final double autoSpeed = 1;
+	public static final double autoSpeed = 0.6;
 	public static final double autoTimer = 5;
 	public static final double moatTimer = 3;
 	public static final double rockWallTimer = 3;
