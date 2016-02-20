@@ -3,6 +3,7 @@ package com.nicoletfear.Stronghold2016;
 
 import com.nicoletfear.Stronghold2016.commands.AutonomousBackwards;
 import com.nicoletfear.Stronghold2016.commands.AutonomousForwards;
+import com.nicoletfear.Stronghold2016.commands.AutonomousLowBar;
 import com.nicoletfear.Stronghold2016.commands.AutonomousMoat;
 import com.nicoletfear.Stronghold2016.commands.AutonomousRamparts;
 import com.nicoletfear.Stronghold2016.commands.AutonomousRockWall;
@@ -50,12 +51,11 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser();
-		chooser.addDefault("Forwards", new AutonomousForwards());
-		chooser.addObject("Backwards", new AutonomousBackwards());
 		chooser.addObject("Rock Wall", new AutonomousRockWall());
 		chooser.addObject("Moat", new AutonomousMoat());
 		chooser.addObject("Ramparts", new AutonomousRamparts());
 		chooser.addObject("Rocky Terrain", new AutonomousRockyTerrain());
+		chooser.addObject("Low Bar", new AutonomousLowBar());
 		// makes objects to be seen in SmartDashboard
 		SmartDashboard.putData("Auto Selector", chooser);
 		autonomousCommand = new Forwards();
