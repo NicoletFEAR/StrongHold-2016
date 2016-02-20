@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousRamparts extends CommandGroup {
 	
     public  AutonomousRamparts() {
-    	addSequential(new Forwards());
+    	addSequential(new Ramparts());
     	//runs forwards
     }
 }

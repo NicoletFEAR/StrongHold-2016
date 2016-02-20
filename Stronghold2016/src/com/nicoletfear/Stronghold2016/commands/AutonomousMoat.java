@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousMoat extends CommandGroup {
 	
     public  AutonomousMoat() {
-    	addSequential(new Forwards());
+    	addSequential(new Moat());
     	//runs forwards
     }
 }

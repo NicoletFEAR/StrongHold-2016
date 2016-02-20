@@ -35,6 +35,11 @@ public class RobotMap {
 	//use instead of hard-coded numbers
 	public static final double autoSpeed = 1;
 	public static final double autoTimer = 5;
+	public static final double moatTimer = 3;
+	public static final double rockWallTimer = 3;
+	public static final double rockyTerrainTimer = 3;
+	public static final double rampartsTimer = 3;
+	public static final double lowBarTimer = 3;
 	
 	
 	public static final double scaling = 1;
