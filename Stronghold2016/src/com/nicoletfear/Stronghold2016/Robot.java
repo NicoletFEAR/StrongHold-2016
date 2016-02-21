@@ -8,10 +8,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.nicoletfear.Stronghold2016.subsystems.Arm;
-import com.nicoletfear.Stronghold2016.commands.AutonomousBackwards;
-import com.nicoletfear.Stronghold2016.commands.AutonomousForwards;
-import com.nicoletfear.Stronghold2016.commands.Backwards;
-import com.nicoletfear.Stronghold2016.commands.Forwards;
+import com.nicoletfear.Stronghold2016.commands.AutonomousLowBar;
+import com.nicoletfear.Stronghold2016.commands.AutonomousMoat;
+import com.nicoletfear.Stronghold2016.commands.AutonomousRamparts;
+import com.nicoletfear.Stronghold2016.commands.AutonomousRockWall;
+import com.nicoletfear.Stronghold2016.commands.AutonomousRockyTerrain;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 import com.nicoletfear.Stronghold2016.subsystems.Intake;
 
@@ -48,15 +49,18 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser();
-		chooser.addDefault("Forwards", new AutonomousForwards());
-		chooser.addObject("Backwards", new AutonomousBackwards());
+		chooser.addObject("Rock Wall", new AutonomousRockWall());
+		chooser.addObject("Moat", new AutonomousMoat());
+		chooser.addObject("Ramparts", new AutonomousRamparts());
+		chooser.addObject("Rocky Terrain", new AutonomousRockyTerrain());
+		chooser.addObject("Low Bar", new AutonomousLowBar());
 		// makes objects to be seen in SmartDashboard
 		SmartDashboard.putData("Auto Selector", chooser);
 		CameraServer camera = CameraServer.getInstance();
 		camera.setQuality(50);
 		camera.startAutomaticCapture("cam1");
 		camera.startAutomaticCapture();
-		autonomousCommand = new Forwards();
+		//autonomousCommand = new Forwards(); TO DO
 		// sets command to autonomous forwards
 	}
 

@@ -11,18 +11,18 @@ import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 /**
  *
  */
-public class Forwards extends Command {
+public class Ramparts extends Command {
 
-    public Forwards() {
+    public Ramparts() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
         //makes bot drive forwards for five seconds
-        setTimeout(RobotMap.autoTimer);
+        setTimeout(RobotMap.rampartsTimer);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.drive(-RobotMap.autoSpeed , -RobotMap.autoSpeed);
+    	Robot.driveTrain.drive(-RobotMap.rampartsSpeed , -RobotMap.rampartsSpeed);
     	//values inverted because it was driving backwards for some reason
     }
 
