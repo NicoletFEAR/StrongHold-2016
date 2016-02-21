@@ -11,19 +11,19 @@ import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 /**
  *
  */
-public class Backwards extends Command {
+public class RockWall extends Command {
 
-    public Backwards() {
+    public RockWall() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
-        setTimeout(RobotMap.autoTimer);
-        //will have bot drive forwards for 5 seconds
+        //makes bot drive forwards for five seconds
+        setTimeout(RobotMap.rockWallTimer);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
-    	Robot.driveTrain.drive(RobotMap.autoSpeed , RobotMap.autoSpeed);
+    	Robot.driveTrain.drive(-RobotMap.rockWallSpeed , -RobotMap.rockWallSpeed);
+    	//values inverted because it was driving backwards for some reason
     }
 
     // Called repeatedly when this Command is scheduled to run

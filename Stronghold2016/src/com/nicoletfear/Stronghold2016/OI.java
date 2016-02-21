@@ -61,10 +61,8 @@ public class OI {
         SmartDashboard.putData("Arm Up", new ArmUp());
         SmartDashboard.putData("Arm Down", new ArmDown());
         SmartDashboard.putData("Pass", new PassCommand());
-        SmartDashboard.putData("Backwards", new Backwards());
         SmartDashboard.putData("Shoot", new ShootCommand());
         SmartDashboard.putData("Intake", new IntakeCommand());
-        SmartDashboard.putData("Forwards", new Forwards());
         /*Button A = new JoystickButton(gameMech, 1);
         The Everything is Awesome code
          1 is button A on xbox
