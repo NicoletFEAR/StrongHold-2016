@@ -49,7 +49,7 @@ public class RobotMap {
 	public static final double lowBarTimer = 4;
 	
 	
-	public static final double scaling = .75;
+	public static final double scaling = .6;
 
 	
 
