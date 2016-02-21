@@ -61,5 +61,8 @@ public class Arm extends Subsystem {
     		return true;
     	}
     }
+    public void raisePortcullis(){
+    	positionMotor.set(RobotMap.raisePortcullisSpeed);
+    }
     //returns true when pressed
 }

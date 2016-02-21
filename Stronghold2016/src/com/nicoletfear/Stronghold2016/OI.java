@@ -21,6 +21,7 @@ public class OI {
     public static Joystick gameMech;
     public static Button aButton;
     public static Button bButton;
+    public static Button xButton;
     public static Button yButton;
     public static Button rightBumper;
     public static Button leftBumper;
@@ -29,6 +30,7 @@ public class OI {
 	public static DigitalInput limitSwitchTop;
 	public static DigitalInput limitSwitchBottom;
 	public static DigitalInput limitSwitchIntake;
+	
 
 
     public OI() {
@@ -38,6 +40,7 @@ public class OI {
     	aButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.A);
     	bButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.B);
     	yButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.Y);
+    	xButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.X);
     	rightBumper = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.RightBump);
     	leftBumper = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.LeftBump);
     	//construct sensors here 
@@ -50,6 +53,7 @@ public class OI {
     	aButton.whileHeld(new IntakeCommand());
     	bButton.whileHeld(new PassCommand());
     	yButton.whileHeld(new ShootCommand());
+    	xButton.whileHeld(new RaisePortcullis());
     	leftBumper.whileHeld(new ArmDown());
     	rightBumper.whileHeld(new ArmUp());
     	//runs commands when buttons pressed
