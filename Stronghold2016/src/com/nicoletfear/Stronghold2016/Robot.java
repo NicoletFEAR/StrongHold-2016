@@ -58,7 +58,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto Selector", chooser);
 		CameraServer camera = CameraServer.getInstance();
 		camera.setQuality(50);
-		camera.startAutomaticCapture("cam1");
+		camera.startAutomaticCapture("cam0");
 		camera.startAutomaticCapture();
 		//autonomousCommand = new Forwards(); TO DO
 		// sets command to autonomous forwards
