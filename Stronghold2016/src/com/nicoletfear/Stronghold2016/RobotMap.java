@@ -30,6 +30,7 @@ public class RobotMap {
 	public static final double intakeSpeed = -1;
 	public static final double passSpeed = .75;
 	public static final double shootSpeed = 1;
+	public static final double raisePortcullisSpeed = 1;
 
 	//autonomous constants
 	//use instead of hard-coded numbers
@@ -48,7 +49,7 @@ public class RobotMap {
 	public static final double lowBarTimer = 4;
 	
 	
-	public static final double scaling = 1;
+	public static final double scaling = .6;
 
 	
 

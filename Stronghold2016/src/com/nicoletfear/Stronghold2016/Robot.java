@@ -13,6 +13,7 @@ import com.nicoletfear.Stronghold2016.commands.AutonomousMoat;
 import com.nicoletfear.Stronghold2016.commands.AutonomousRamparts;
 import com.nicoletfear.Stronghold2016.commands.AutonomousRockWall;
 import com.nicoletfear.Stronghold2016.commands.AutonomousRockyTerrain;
+import com.nicoletfear.Stronghold2016.commands.AutonomousStop;
 import com.nicoletfear.Stronghold2016.subsystems.DriveTrain;
 import com.nicoletfear.Stronghold2016.subsystems.Intake;
 
@@ -49,6 +50,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser();
+		chooser.addDefault("StandStill", new AutonomousStop());
 		chooser.addObject("Rock Wall", new AutonomousRockWall());
 		chooser.addObject("Moat", new AutonomousMoat());
 		chooser.addObject("Ramparts", new AutonomousRamparts());
