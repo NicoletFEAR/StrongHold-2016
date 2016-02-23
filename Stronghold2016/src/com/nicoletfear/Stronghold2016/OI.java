@@ -4,8 +4,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.buttons.Trigger;
-
 import com.nicoletfear.Stronghold2016.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -25,8 +23,6 @@ public class OI {
     public static Button yButton;
     public static Button rightBumper;
     public static Button leftBumper;
-    public static Trigger leftTrigger;
-    public static Trigger rightTrigger;
 	public static DigitalInput limitSwitchTop;
 	public static DigitalInput limitSwitchBottom;
 	public static DigitalInput limitSwitchIntake;

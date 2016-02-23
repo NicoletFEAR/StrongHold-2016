@@ -4,7 +4,6 @@ package com.nicoletfear.Stronghold2016.subsystems;
 import com.nicoletfear.Stronghold2016.OI;
 import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
-import com.nicoletfear.Stronghold2016.commands.HoldArm;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -16,14 +15,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Arm extends Subsystem {
 	
 	//declare variables here
-	public CANTalon positionMotor;
+	CANTalon positionMotor;
 	DigitalInput limitSwitchTop;
 	DigitalInput limitSwitchBottom;
 	
 	public Arm(){
 		//assign variables here
 		positionMotor = new CANTalon(RobotMap.positionMotorPort);
-		positionMotor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		limitSwitchTop = OI.limitSwitchTop;
 		limitSwitchBottom = OI.limitSwitchBottom;
 	}
@@ -33,8 +31,7 @@ public class Arm extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-
-    	setDefaultCommand(new HoldArm());
+        //setDefaultCommand(new MySpecialCommand());
     }
     public void armUp(){
     	positionMotor.set(RobotMap.armSpeed);
@@ -64,8 +61,10 @@ public class Arm extends Subsystem {
     		return true;
     	}
     }
+    //returns true when pressed
+    
     public void raisePortcullis(){
     	positionMotor.set(RobotMap.raisePortcullisSpeed);
     }
-    //returns true when pressed
+
 }
