@@ -52,7 +52,7 @@ public class RobotMap {
 	public static final double scaling = .6;
 
 	
-
+	public static final double defaultArmPosition = 0;
 
 	
 	

@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+
 import com.nicoletfear.Stronghold2016.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -50,8 +52,11 @@ public class OI {
     	bButton.whileHeld(new PassCommand());
     	yButton.whileHeld(new ShootCommand());
     	xButton.whileHeld(new RaisePortcullis());
-    	leftBumper.whileHeld(new ArmDown());
-    	rightBumper.whileHeld(new ArmUp());
+    	leftBumper.whenPressed(new ArmDown());
+    	rightBumper.whenPressed(new ArmUp());
+    	
+    	leftBumper.whenReleased(new HoldArm());
+    	rightBumper.whenReleased(new HoldArm());
     	//runs commands when buttons pressed
     	
         right1 = new Joystick(1);

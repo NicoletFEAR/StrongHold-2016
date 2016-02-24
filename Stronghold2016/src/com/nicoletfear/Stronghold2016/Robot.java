@@ -123,6 +123,7 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Arm Position", arm.positionMotor.getEncPosition());
 	}
 
 	/**
