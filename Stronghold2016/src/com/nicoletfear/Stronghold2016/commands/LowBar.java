@@ -20,7 +20,7 @@ public class LowBar extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.drive(-RobotMap.lowBarSpeed , -RobotMap.lowBarSpeed);
+    	Robot.driveTrain.driveForwards(-RobotMap.lowBarSpeed , -RobotMap.lowBarSpeed);
     	//values inverted because it was driving backwards for some reason
     }
 

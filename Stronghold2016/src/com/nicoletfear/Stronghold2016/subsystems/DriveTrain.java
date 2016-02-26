@@ -63,11 +63,18 @@ public class DriveTrain extends Subsystem {
     }
 
 
-	public void drive(double leftInput, double rightInput) {
+	public void driveForwards(double leftInput, double rightInput) {
 		//scales between 1 and 1
 		//did this because we don't know what the maximum speed of the motors is
 		double leftOutput = leftInput * RobotMap.scaling;
 		double rightOutput = rightInput * RobotMap.scaling;
+		frontLeft.set(leftOutput);
+		frontRight.set(rightOutput);
+	}
+	public void turn(double leftInput, double rightInput){
+		//turns bot at different speed
+		double leftOutput = leftInput * RobotMap.turningScaling;
+		double rightOutput = rightInput * RobotMap.turningScaling;
 		frontLeft.set(leftOutput);
 		frontRight.set(rightOutput);
 	}

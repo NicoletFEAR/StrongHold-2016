@@ -38,7 +38,11 @@ public class  Drive extends Command {
     	//gets input from controller and drives bot
     	double rightInput = Robot.oi.getRight().getY();
     	double leftInput = Robot.oi.getLeft().getY();
-    	Robot.driveTrain.drive(leftInput, rightInput);
+    	if(rightInput * leftInput > 0){
+    		Robot.driveTrain.driveForwards(leftInput, rightInput);
+    	}else{
+    		Robot.driveTrain.turn(leftInput, rightInput);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
