@@ -4,6 +4,7 @@ package com.nicoletfear.Stronghold2016.subsystems;
 import com.nicoletfear.Stronghold2016.OI;
 import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
+import com.nicoletfear.Stronghold2016.commands.HoldArm;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -15,13 +16,33 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Arm extends Subsystem {
 	
 	//declare variables here
-	CANTalon positionMotor;
+	double position;
+	public CANTalon positionMotor;
 	DigitalInput limitSwitchTop;
 	DigitalInput limitSwitchBottom;
 	
 	public Arm(){
 		//assign variables here
 		positionMotor = new CANTalon(RobotMap.positionMotorPort);
+		positionMotor.changeControlMode(CANTalon.TalonControlMode.Position);
+		
+		positionMotor.setEncPosition(0);
+		
+		positionMotor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		
+		positionMotor.reverseSensor(false);
+		
+		positionMotor.setAllowableClosedLoopErr(0); // parameter needs to be determined
+	        positionMotor.setProfile(0);
+	        positionMotor.setF(0.0);
+	        positionMotor.setP(0.8); // parameter needs to be determined
+	        positionMotor.setI(0.0004); // parameter needs to be determined
+	        positionMotor.setD(0.0); // parameter needs to be determined
+	        positionMotor.enable();
+	        positionMotor.enableControl();
+	    
+	        position = positionMotor.getEncPosition();
+		
 		limitSwitchTop = OI.limitSwitchTop;
 		limitSwitchBottom = OI.limitSwitchBottom;
 	}
@@ -31,20 +52,45 @@ public class Arm extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+
+    
     }
     public void armUp(){
-    	positionMotor.set(RobotMap.armSpeed);
+    	
+    	if(position < 0){
+    		position += 10;
+    	}
+    	if(upLimitSwitchPressed()){
+    		position = positionMotor.getEncPosition();
+    	}
+    	positionMotor.set(position);
+        
     }
     //moves arm up
     public void armDown(){
-    	positionMotor.set(-RobotMap.armSpeed);
+    	 
+    	if(position > -1200){
+    		position -= 10;
+    	}
+    	 if(downLimitSwitchPressed()){
+     		position = positionMotor.getEncPosition();
+     	}
+    	 positionMotor.set(position);
+        
     }
     //moves arm down
-    public void armStop(){
-    	positionMotor.set(0);
+    
+    public void armHold(){
+        positionMotor.set(position);
     }
     //stops arm
+    
+    public void armDefaultPosition(){
+        position = RobotMap.defaultArmPosition;
+        positionMotor.set(position);
+    }
+    //stops arm
+    
     public boolean upLimitSwitchPressed(){
     	if(OI.limitSwitchTop.get()){
     		return false;
@@ -62,9 +108,16 @@ public class Arm extends Subsystem {
     	}
     }
     //returns true when pressed
-    
+    /*
     public void raisePortcullis(){
-    	positionMotor.set(RobotMap.raisePortcullisSpeed);
+    	if(position < 0){
+    		position += 40;
+    	}
+    	if(upLimitSwitchPressed()){
+    		position = positionMotor.getEncPosition();
+    	}
+    	positionMotor.set(position);
     }
+    */
 
 }
