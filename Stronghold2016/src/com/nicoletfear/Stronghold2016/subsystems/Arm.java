@@ -108,9 +108,16 @@ public class Arm extends Subsystem {
     	}
     }
     //returns true when pressed
-    
+    /*
     public void raisePortcullis(){
-    	positionMotor.set(RobotMap.raisePortcullisSpeed);
+    	if(position < 0){
+    		position += 40;
+    	}
+    	if(upLimitSwitchPressed()){
+    		position = positionMotor.getEncPosition();
+    	}
+    	positionMotor.set(position);
     }
+    */
 
 }
