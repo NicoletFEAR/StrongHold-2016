@@ -49,9 +49,12 @@ public class OI {
     	aButton.whileHeld(new IntakeCommand());
     	bButton.whileHeld(new PassCommand());
     	yButton.whileHeld(new ShootCommand());
-    	xButton.whileHeld(new RaisePortcullis());
-    	leftBumper.whileHeld(new ArmDown());
-    	rightBumper.whileHeld(new ArmUp());
+    	//xButton.whileHeld(new RaisePortcullis());
+    	leftBumper.whenPressed(new ArmDown());
+    	rightBumper.whenPressed(new ArmUp());
+    	
+    	leftBumper.whenReleased(new HoldArm());
+    	rightBumper.whenReleased(new HoldArm());
     	//runs commands when buttons pressed
     	
         right1 = new Joystick(1);

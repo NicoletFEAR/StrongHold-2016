@@ -39,7 +39,7 @@ public class  Drive extends Command {
     	double rightInput = Robot.oi.getRight().getY();
     	double leftInput = Robot.oi.getLeft().getY();
     	if(rightInput * leftInput > 0){
-    		Robot.driveTrain.driveForwards(leftInput, rightInput);
+    		Robot.driveTrain.drive(leftInput, rightInput);
     	}else{
     		Robot.driveTrain.turn(leftInput, rightInput);
     	}
