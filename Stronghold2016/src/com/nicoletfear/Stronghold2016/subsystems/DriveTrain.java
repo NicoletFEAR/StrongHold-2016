@@ -71,5 +71,11 @@ public class DriveTrain extends Subsystem {
 		frontLeft.set(leftOutput);
 		frontRight.set(rightOutput);
 	}
+	public void turn(double leftInput, double rightInput){
+		double leftOutput = leftInput * RobotMap.turningScaling;
+		double rightOutput = rightInput * RobotMap.turningScaling;
+		frontLeft.set(leftOutput);
+		frontRight.set(rightOutput);
+	}
 }
 

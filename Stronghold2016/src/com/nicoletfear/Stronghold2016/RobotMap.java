@@ -47,10 +47,10 @@ public class RobotMap {
 	public static final double rockyTerrainTimer = 4;
 	public static final double rampartsTimer = 3;
 	public static final double lowBarTimer = 4;
-	
+	public static final double armDownTimer = 2.15;
 	
 	public static final double scaling = .6;
-
+	public static final double turningScaling = .45;
 	
 	public static final double defaultArmPosition = 0;
 

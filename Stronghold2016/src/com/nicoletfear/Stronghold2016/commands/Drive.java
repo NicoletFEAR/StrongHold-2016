@@ -39,6 +39,12 @@ public class  Drive extends Command {
     	double rightInput = Robot.oi.getRight().getY();
     	double leftInput = Robot.oi.getLeft().getY();
     	Robot.driveTrain.drive(leftInput, rightInput);
+    	if(rightInput * leftInput > 0){
+    		Robot.driveTrain.drive(leftInput * 1.015, rightInput);
+    	}
+    	else{
+    		Robot.driveTrain.turn(leftInput, rightInput);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
