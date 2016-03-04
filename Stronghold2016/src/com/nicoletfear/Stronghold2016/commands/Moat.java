@@ -22,7 +22,7 @@ public class Moat extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.drive(-RobotMap.moatSpeed , -RobotMap.moatSpeed);
+    	Robot.driveTrain.drive(-RobotMap.moatSpeed * 1.015 , -RobotMap.moatSpeed);
     	//values inverted because it was driving backwards for some reason
     }
 
