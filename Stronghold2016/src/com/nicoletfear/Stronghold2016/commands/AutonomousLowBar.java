@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousLowBar extends CommandGroup {
 	
     public  AutonomousLowBar() {
+    	addSequential(new AutoArmDown());
     	addSequential(new LowBar());
     	//runs forwards
     }
