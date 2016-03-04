@@ -52,8 +52,8 @@ public class OI {
     	bButton.whileHeld(new PassCommand());
     	yButton.whileHeld(new ShootCommand());
     	//xButton.whileHeld(new RaisePortcullis());
-    	leftBumper.whenPressed(new ArmDown());
-    	rightBumper.whenPressed(new ArmUp());
+    	leftBumper.whileHeld(new ArmDown());
+    	rightBumper.whileHeld(new ArmUp());
     	
     	leftBumper.whenReleased(new HoldArm());
     	rightBumper.whenReleased(new HoldArm());
