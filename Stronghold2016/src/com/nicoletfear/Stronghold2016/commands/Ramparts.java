@@ -22,7 +22,7 @@ public class Ramparts extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.drive(-RobotMap.rampartsSpeed * 1.015, -RobotMap.rampartsSpeed);
+    	Robot.driveTrain.drive(-RobotMap.rampartsSpeed + 0.075, -RobotMap.rampartsSpeed);
     	//values inverted because it was driving backwards for some reason
     }
 

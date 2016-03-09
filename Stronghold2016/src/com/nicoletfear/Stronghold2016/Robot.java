@@ -59,9 +59,9 @@ public class Robot extends IterativeRobot {
 		// makes objects to be seen in SmartDashboard
 		SmartDashboard.putData("Auto Selector", chooser);
 		CameraServer camera = CameraServer.getInstance();
-		camera.setQuality(30);
+		camera.setQuality(10);
 		camera.startAutomaticCapture("cam0");
-		camera.startAutomaticCapture();
+		//camera.startAutomaticCapture();
 		//autonomousCommand = new Forwards(); TO DO
 		// sets command to autonomous forwards
 	}
@@ -124,7 +124,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("Arm Position", arm.positionMotor.getEncPosition());
-		SmartDashboard.putString("Version", "Testing 2.0 Duluth Comp.");
+		SmartDashboard.putString("Version", "Testing 6.3 Duluth Comp.");
 	}
 
 	/**

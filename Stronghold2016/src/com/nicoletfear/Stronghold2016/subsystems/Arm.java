@@ -57,7 +57,7 @@ public class Arm extends Subsystem {
     }
     public void armUp(){
     	//if(position < 0){
-    		position += 10;
+    		position += 30;
     //	}
     	//if(upLimitSwitchPressed()){
     		//position = positionMotor.getEncPosition();
@@ -76,6 +76,18 @@ public class Arm extends Subsystem {
      //	}
     	 positionMotor.set(position);
         
+    }
+    
+    public void autoArmDown(){
+    	positionMotor.set(-2100);
+        //	}
+        	// if(downLimitSwitchPressed()){
+         		//position = positionMotor.getEncPosition();
+         //	}
+        
+        }
+    public void autoArmUp(){
+    	positionMotor.set(10);
     }
     //moves arm down
     

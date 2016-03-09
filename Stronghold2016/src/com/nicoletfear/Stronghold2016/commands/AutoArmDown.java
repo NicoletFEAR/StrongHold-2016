@@ -4,6 +4,7 @@ package com.nicoletfear.Stronghold2016.commands;
 import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
 
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -20,12 +21,11 @@ public class AutoArmDown extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arm.armDown();
+    	Robot.arm.autoArmDown();
     }
 
     // Make this return true when this Command no longer needs to run execute()

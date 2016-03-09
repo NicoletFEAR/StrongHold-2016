@@ -23,8 +23,8 @@ public class HoldArm extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//Robot.arm.positionMotor.changeControlMode(TalonControlMode.Position);
-    	//Robot.arm.positionMotor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+    	Robot.arm.positionMotor.changeControlMode(TalonControlMode.Position);
+    	Robot.arm.positionMotor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
     	heldPosition = Robot.arm.positionMotor.getEncPosition();
     }
 
