@@ -39,6 +39,7 @@ public class RobotMap {
 	public static final double rampartsSpeed = 0.5;
 	public static final double rockyTerrainSpeed = 0.6;
 	public static final double rockWallSpeed = 0.6;
+	public static final double portcullisSpeed = 0.6;
 	public static final double autoSpeed = 0.5;
 	
 	public static final double autoTimer = 5;
@@ -47,15 +48,29 @@ public class RobotMap {
 	public static final double rockyTerrainTimer = 4;
 	public static final double rampartsTimer = 3;
 	public static final double lowBarTimer = 4;
+	public static final double portcullisTimer = 3;
 	public static final double armDownTimer = 3;
 	public static final double armUpTimer = 3;
 	
 	public static final double scaling = .6;
 	public static final double turningScaling = .45;
+	public static final double autoScaling = 1.01;
+	public static final double deadZone = 0.05;
 	
 	public static final double defaultArmPosition = 0;
 	
+	//camara stuff
+	public static final String cameraID = "cam0";
+	public static final int compressionValue = 50;
 	
+	public static final double ArmF = 0.0;
+	public static final double ArmP = 0.8;
+	public static final double ArmI = 0.0004;
+	public static final double ArmD = 0.0;
+	
+	public static final double intakeTarget = -2100;
+	public static final double homeTarget = 0;
+	public static final double portTarget = -2500;
     /* For example to map the left and right motors, you could define the
      following variables to use with your drivetrain subsystem.
      If you are using multiple modules, make sure to define both the port

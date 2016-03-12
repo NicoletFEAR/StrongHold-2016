@@ -22,7 +22,7 @@ public class RockWall extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.drive(-RobotMap.rockWallSpeed * 1.015 , -RobotMap.rockWallSpeed);
+    	Robot.driveTrain.drive(-RobotMap.rockWallSpeed, -RobotMap.rockWallSpeed * RobotMap.autoScaling);
     	//values inverted because it was driving backwards for some reason
     }
 

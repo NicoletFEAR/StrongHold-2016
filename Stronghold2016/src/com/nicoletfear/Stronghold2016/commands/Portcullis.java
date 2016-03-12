@@ -1,39 +1,41 @@
 
 package com.nicoletfear.Stronghold2016.commands;
 
+import com.nicoletfear.Stronghold2016.Robot;
+import com.nicoletfear.Stronghold2016.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Command;
 
-import com.nicoletfear.Stronghold2016.Robot;
-
 /**
- *Command that raises arm. It stops when the user releases the
- *upper limit switch or releases the button
+ *
  */
-public class RaisePortcullis extends Command {
-	
-    public RaisePortcullis() {
+public class Portcullis extends Command {
+
+    public Portcullis() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.arm);
+        requires(Robot.driveTrain);
+        //makes bot drive forwards for five seconds
+        setTimeout(RobotMap.portcullisTimer);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	Robot.driveTrain.drive(-RobotMap.portcullisSpeed, -RobotMap.portcullisSpeed * RobotMap.autoScaling);
+    	//values inverted because it was driving backwards for some reason
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Robot.arm.raisePortcullis();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.arm.upLimitSwitchPressed();
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.arm.armHold();
+    	Robot.driveTrain.brake();
     }
 
     // Called when another command which requires one or more of the same

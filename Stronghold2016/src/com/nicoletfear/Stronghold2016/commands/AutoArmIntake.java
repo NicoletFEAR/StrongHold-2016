@@ -4,28 +4,28 @@ package com.nicoletfear.Stronghold2016.commands;
 import com.nicoletfear.Stronghold2016.Robot;
 import com.nicoletfear.Stronghold2016.RobotMap;
 
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Command that lowers arm. It stops when the user releases the
+ *lower limit switch or releases the button
  */
-public class LowBar extends Command {
-
-    public LowBar() {
+public class AutoArmIntake extends Command {
+	
+    public AutoArmIntake() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveTrain);
-        //makes bot drive forwards for five seconds
-        setTimeout(RobotMap.lowBarTimer);
+        requires(Robot.arm);
+        setTimeout(RobotMap.armDownTimer);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.drive(-RobotMap.lowBarSpeed, -RobotMap.lowBarSpeed * RobotMap.autoScaling);
-    	//values inverted because it was driving backwards for some reason
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.arm.autoArmIntake();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,7 +35,8 @@ public class LowBar extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.brake();
+    	//Robot.arm.armHold();
+    	//new HoldArm().start();
     }
 
     // Called when another command which requires one or more of the same

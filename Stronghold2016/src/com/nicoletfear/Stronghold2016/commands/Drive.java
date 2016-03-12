@@ -11,8 +11,10 @@
 
 package com.nicoletfear.Stronghold2016.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import com.nicoletfear.Stronghold2016.Robot;
+import com.nicoletfear.Stronghold2016.RobotMap;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
@@ -39,9 +41,8 @@ public class  Drive extends Command {
     	double rightInput = Robot.oi.getRight().getY();
     	double leftInput = Robot.oi.getLeft().getY();
     	Robot.driveTrain.drive(leftInput, rightInput);
-    	if(rightInput * leftInput > 0){
-    		Robot.driveTrain.drive(leftInput, rightInput);
-    	}
+    	if((rightInput >= RobotMap.deadZone && leftInput >= RobotMap.deadZone) || (rightInput <= -RobotMap.deadZone && leftInput <= -RobotMap.deadZone)){
+    		Robot.driveTrain.drive(leftInput, rightInput);    	}
     	else{
     		Robot.driveTrain.turn(leftInput, rightInput);
     	}

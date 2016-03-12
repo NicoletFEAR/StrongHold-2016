@@ -16,8 +16,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class OI {
 	
 	//instantiate buttons, sensors and joysticks here
-	public Joystick left0;
-    public Joystick right1;
+	public Joystick left;
+    public Joystick right;
     public static Joystick gameMech;
     public static Button aButton;
     public static Button bButton;
@@ -25,6 +25,8 @@ public class OI {
     public static Button yButton;
     public static Button rightBumper;
     public static Button leftBumper;
+    public static Button startButton;
+    public static Button backButton;
 	public static DigitalInput limitSwitchTop;
 	public static DigitalInput limitSwitchBottom;
 	public static DigitalInput limitSwitchIntake;
@@ -39,6 +41,8 @@ public class OI {
     	bButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.B);
     	yButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.Y);
     	xButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.X);
+    	startButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.Start);
+    	backButton = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.Back);
     	rightBumper = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.RightBump);
     	leftBumper = new JoystickButton(gameMech , com.nicoletfear.Stronghold2016.xbox.Buttons.LeftBump);
     	//construct sensors here 
@@ -51,7 +55,11 @@ public class OI {
     	aButton.whileHeld(new IntakeCommand());
     	bButton.whileHeld(new PassCommand());
     	yButton.whileHeld(new ShootCommand());
-    	//xButton.whileHeld(new RaisePortcullis());
+    	
+    	xButton.whenPressed(new ArmTargetPositionIntake(RobotMap.intakeTarget));
+    	startButton.whenPressed(new ArmTargetPositionHome(RobotMap.homeTarget));
+    	backButton.whenPressed(new ArmTargetPositionPort(RobotMap.portTarget));
+    	
     	leftBumper.whileHeld(new ArmDown());
     	rightBumper.whileHeld(new ArmUp());
     	
@@ -59,9 +67,9 @@ public class OI {
     	rightBumper.whenReleased(new HoldArm());
     	//runs commands when buttons pressed
     	
-        right1 = new Joystick(1);
+        right = new Joystick(0);
         
-        left0 = new Joystick(0);
+        left = new Joystick(1);
         
 
         /*Button A = new JoystickButton(gameMech, 1);
@@ -77,11 +85,11 @@ public class OI {
 		
 	}
     public Joystick getLeft() {
-        return left0;
+        return left;
     }
 
     public Joystick getRight() {
-        return right1;
+        return right;
     }
     
 }

@@ -17,6 +17,12 @@ public class Arm extends Subsystem {
 	
 	//declare variables here
 	double position;
+	double target = 0;
+	
+	String switchHitLast;
+	String bottomLimit = "bottom";
+	String topLimit = "top";
+	
 	public CANTalon positionMotor;
 	DigitalInput limitSwitchTop;
 	DigitalInput limitSwitchBottom;
@@ -34,10 +40,10 @@ public class Arm extends Subsystem {
 		
 		positionMotor.setAllowableClosedLoopErr(0); // parameter needs to be determined
 	        positionMotor.setProfile(0);
-	        positionMotor.setF(0.0);
-	        positionMotor.setP(0.8); // parameter needs to be determined
-	        positionMotor.setI(0.0004); // parameter needs to be determined
-	        positionMotor.setD(0.0); // parameter needs to be determined
+	        positionMotor.setF(RobotMap.ArmF);
+	        positionMotor.setP(RobotMap.ArmP); // parameter needs to be determined
+	        positionMotor.setI(RobotMap.ArmI); // parameter needs to be determined
+	        positionMotor.setD(RobotMap.ArmD); // parameter needs to be determined
 	        positionMotor.enable();
 	        positionMotor.enableControl();
 	    
@@ -52,13 +58,17 @@ public class Arm extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
+    	//setDefaultCommand(new ArmHold());
 
     
     }
     public void armUp(){
-    	//if(position < 0){
+    	if(limitSwitchTop.get() != true && positionMotor.get() < 0){
     		position += 30;
-    //	}
+    	}else{
+    		switchHitLast = "top";
+    		positionMotor.setPosition(0);
+    	}
     	//if(upLimitSwitchPressed()){
     		//position = positionMotor.getEncPosition();
     	//}
@@ -68,9 +78,11 @@ public class Arm extends Subsystem {
     //moves arm up
     public void armDown(){
     	 
-    //	if(position > -1200){
+    	if(limitSwitchBottom.get() != true){
     		position -= 10;
-    //	}
+    	}else{
+		switchHitLast = "bottom";
+    	}
     	// if(downLimitSwitchPressed()){
      		//position = positionMotor.getEncPosition();
      //	}
@@ -79,16 +91,46 @@ public class Arm extends Subsystem {
     }
     
     public void autoArmDown(){
-    	positionMotor.set(-2100);
+    	positionMotor.set(RobotMap.portTarget);
+        //	}
+        	// if(downLimitSwitchPressed()){
+         		//position = positionMotor.getEncPosition();
+         //	}
+        }
+    
+    public void autoArmUp(){
+    	positionMotor.set(RobotMap.homeTarget);
+    }
+    
+    public void autoArmIntake(){
+    	positionMotor.set(RobotMap.intakeTarget);
+    }
+    
+    public void armSetIntake(double target){
+    	//if(limitSwitchTop.get() != true && limitSwitchBottom.get()){
+    	positionMotor.set(target);
+    	//}
+    }
+    
+    public void armSetHome(double target){
+    	if(limitSwitchTop.get() != true && positionMotor.get() < RobotMap.homeTarget){
+		positionMotor.set(target);
+    	}
+	}
+    
+    public void armSetPort(double target){
+    	if(limitSwitchBottom.get() != true && positionMotor.get() > RobotMap.portTarget)
+		positionMotor.set(target);
+	
+	}
+    	
         //	}
         	// if(downLimitSwitchPressed()){
          		//position = positionMotor.getEncPosition();
          //	}
         
-        }
-    public void autoArmUp(){
-    	positionMotor.set(10);
-    }
+        
+    
     //moves arm down
     
     public void armHold(){
