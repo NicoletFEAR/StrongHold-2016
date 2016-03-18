@@ -54,7 +54,8 @@ public class RobotMap {
 	
 	public static final double scaling = .6;
 	public static final double turningScaling = .45;
-	public static final double autoScaling = 1.01;
+	public static final double autoScaling = 1.45;
+	//Set to autoScaling 1.01 for Sir Lance A Bot
 	public static final double deadZone = 0.05;
 	
 	public static final double defaultArmPosition = 0;

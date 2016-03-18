@@ -63,8 +63,8 @@ public class OI {
     	leftBumper.whileHeld(new ArmDown());
     	rightBumper.whileHeld(new ArmUp());
     	
-    	leftBumper.whenReleased(new HoldArm());
-    	rightBumper.whenReleased(new HoldArm());
+    	//leftBumper.whenReleased(new HoldArm());
+    	//rightBumper.whenReleased(new HoldArm());
     	//runs commands when buttons pressed
     	
         right = new Joystick(0);

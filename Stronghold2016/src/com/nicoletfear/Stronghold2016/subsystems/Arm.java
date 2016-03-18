@@ -56,37 +56,37 @@ public class Arm extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    public void initDefaultCommand() {
+    public void initDefaultCommand(){
         // Set the default command for a subsystem here.
-    	//setDefaultCommand(new ArmHold());
+    	setDefaultCommand(new HoldArm());
 
     
     }
     public void armUp(){
-    	if(limitSwitchTop.get() != true && positionMotor.get() < 0){
-    		position += 30;
-    	}else{
-    		switchHitLast = "top";
-    		positionMotor.setPosition(0);
-    	}
-    	//if(upLimitSwitchPressed()){
+    	
+    		//position += 30;
+    	position -= 10;
+    		positionMotor.set(position);
+    		
+    		//if(upLimitSwitchPressed()){
     		//position = positionMotor.getEncPosition();
-    	//}
-    	positionMotor.set(position);
+    		//}
+    	
         
     }
     //moves arm up
     public void armDown(){
     	 
-    	if(limitSwitchBottom.get() != true){
-    		position -= 10;
-    	}else{
-		switchHitLast = "bottom";
-    	}
-    	// if(downLimitSwitchPressed()){
+    	
+    		//position -= 10;
+    	position += 30;
+    		positionMotor.set(position);
+		
+    	
+    		// if(downLimitSwitchPressed()){
      		//position = positionMotor.getEncPosition();
-     //	}
-    	 positionMotor.set(position);
+    		//	}
+    	 
         
     }
     
@@ -145,9 +145,10 @@ public class Arm extends Subsystem {
     //stops arm
     
     public boolean upLimitSwitchPressed(){
-    	if(OI.limitSwitchTop.get()){
+    	if(OI.limitSwitchTop.get() && positionMotor.get() < 0){
     		return false;
     	}else{
+    		positionMotor.setPosition(0);
     		return true;
     	}
     }
@@ -160,6 +161,7 @@ public class Arm extends Subsystem {
     		return true;
     	}
     }
+    
     //returns true when pressed
     /*
     public void raisePortcullis(){
