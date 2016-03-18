@@ -4,6 +4,7 @@ package com.nicoletfear.Stronghold2016.commands;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.nicoletfear.Stronghold2016.OI;
 import com.nicoletfear.Stronghold2016.Robot;
@@ -14,7 +15,6 @@ import com.nicoletfear.Stronghold2016.Robot;
  */
 public class HoldArm extends Command {
 	
-	private double heldPosition;
 	
     public HoldArm() {
         // Use requires() here to declare subsystem dependencies
@@ -23,24 +23,21 @@ public class HoldArm extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.arm.positionMotor.changeControlMode(TalonControlMode.Position);
-    	Robot.arm.positionMotor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-    	heldPosition = Robot.arm.positionMotor.getEncPosition();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arm.positionMotor.set(heldPosition);
+    	Robot.arm.armHold();
+    	SmartDashboard.putDouble("Setpoint", Robot.arm.getPosition());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return OI.leftBumper.get() || OI.rightBumper.get();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	//Robot.arm.positionMotor.changeControlMode(TalonControlMode.Speed);
     }
 
     // Called when another command which requires one or more of the same

@@ -23,16 +23,22 @@ public class Arm extends Subsystem {
 	String bottomLimit = "bottom";
 	String topLimit = "top";
 	
+	boolean lastUpSwitchState;
+    boolean lastDownSwitchState;
+	
 	public CANTalon positionMotor;
 	DigitalInput limitSwitchTop;
 	DigitalInput limitSwitchBottom;
 	
 	public Arm(){
 		//assign variables here
+		lastUpSwitchState = false;
+		lastDownSwitchState = false;
+		
 		positionMotor = new CANTalon(RobotMap.positionMotorPort);
 		positionMotor.changeControlMode(CANTalon.TalonControlMode.Position);
 		
-		positionMotor.setEncPosition(0);
+		positionMotor.setPosition(0);
 		
 		positionMotor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		
@@ -47,7 +53,7 @@ public class Arm extends Subsystem {
 	        positionMotor.enable();
 	        positionMotor.enableControl();
 	    
-	        position = positionMotor.getEncPosition();
+	        position = positionMotor.getPosition();
 		
 		limitSwitchTop = OI.limitSwitchTop;
 		limitSwitchBottom = OI.limitSwitchBottom;
@@ -62,15 +68,19 @@ public class Arm extends Subsystem {
 
     
     }
+    public double getPosition(){
+    	return position;
+    }
     public void armUp(){
     	
-    		//position += 30;
-    	position -= 10;
-    		positionMotor.set(position);
-    		
-    		//if(upLimitSwitchPressed()){
-    		//position = positionMotor.getEncPosition();
-    		//}
+    	if(upLimitSwitchPressed() == false){
+            position -= 10; // TODO is this sign correct?
+            if (position > RobotMap.homeTarget)
+            {
+            	position = RobotMap.homeTarget;
+            }
+            positionMotor.set(position);
+        }
     	
         
     }
@@ -78,15 +88,14 @@ public class Arm extends Subsystem {
     public void armDown(){
     	 
     	
-    		//position -= 10;
-    	position += 30;
-    		positionMotor.set(position);
-		
-    	
-    		// if(downLimitSwitchPressed()){
-     		//position = positionMotor.getEncPosition();
-    		//	}
-    	 
+    	if(downLimitSwitchPressed() == false){
+            position += 10; // TODO is this sign correct?
+            if (position < RobotMap.portTarget)
+            {
+            	position = RobotMap.portTarget;
+            }
+            positionMotor.set(position);
+        }
         
     }
     
@@ -94,7 +103,7 @@ public class Arm extends Subsystem {
     	positionMotor.set(RobotMap.portTarget);
         //	}
         	// if(downLimitSwitchPressed()){
-         		//position = positionMotor.getEncPosition();
+         		//position = positionMotor.getPosition();
          //	}
         }
     
@@ -126,7 +135,7 @@ public class Arm extends Subsystem {
     	
         //	}
         	// if(downLimitSwitchPressed()){
-         		//position = positionMotor.getEncPosition();
+         		//position = positionMotor.getPosition();
          //	}
         
         
@@ -134,16 +143,55 @@ public class Arm extends Subsystem {
     //moves arm down
     
     public void armHold(){
+
+    	boolean currentUpSwitchState = upLimitSwitchPressed();
+        boolean currentDownSwitchState = downLimitSwitchPressed();
+
+        if(currentUpSwitchState == true)
+        {
+            positionMotor.setPosition(0);
+            position = 0;
+        }        
+
+        if(currentDownSwitchState == true)
+        {
+            positionMotor.setPosition(-1200);
+            position = -1200;
+        }
+
+        lastUpSwitchState = currentUpSwitchState;
+        lastDownSwitchState = currentDownSwitchState;
+
         positionMotor.set(position);
+
+    	
+/*    	boolean currentUpSwitchState = upLimitSwitchPressed();
+        boolean currentDownSwitchState = downLimitSwitchPressed();
+
+        if(lastUpSwitchState == false && currentUpSwitchState == true)
+        {
+            positionMotor.setPosition(0);
+        }        
+
+        if(lastDownSwitchState == false && currentDownSwitchState == true)
+        {
+            positionMotor.setPosition(-1200);
+        }
+
+        lastUpSwitchState = currentUpSwitchState;
+        lastDownSwitchState = currentDownSwitchState;
+
+        positionMotor.set(position);
+*/
     }
     //stops arm
     
-    public void armDefaultPosition(){
-        position = RobotMap.defaultArmPosition;
+    public void setFixedPosition(double targetPosition){
+        position = targetPosition;
         positionMotor.set(position);
     }
     //stops arm
-    
+/*    
     public boolean upLimitSwitchPressed(){
     	if(OI.limitSwitchTop.get() && positionMotor.get() < 0){
     		return false;
@@ -152,6 +200,16 @@ public class Arm extends Subsystem {
     		return true;
     	}
     }
+    */
+    public boolean upLimitSwitchPressed(){
+    	if(OI.limitSwitchTop.get()){
+    		return false;
+    	}else{
+    		return true;
+    	}
+    }
+
+    
     //returns true when pressed
     
     public boolean downLimitSwitchPressed(){
@@ -169,7 +227,7 @@ public class Arm extends Subsystem {
     		position += 40;
     	}
     	if(upLimitSwitchPressed()){
-    		position = positionMotor.getEncPosition();
+    		position = positionMotor.getPosition();
     	}
     	positionMotor.set(position);
     }

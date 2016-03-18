@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 	//dont ask why
 	public String Skynet = "Sentient";
 	public Boolean SkynetEnabled = true;
-
+	
 	Command autonomousCommand;
 	SendableChooser chooser;
 
@@ -115,8 +115,11 @@ public class Robot extends IterativeRobot {
 		 * running. If you want the autonomous to continue until interrupted by
 		 * another command, remove this line or comment it out.
 		 */
+		Robot.arm.positionMotor.set(0);
+		Robot.arm.positionMotor.setPosition(0);
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
 
 	}
 
