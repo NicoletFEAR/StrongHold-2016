@@ -65,8 +65,8 @@ public class RobotMap {
 	public static final int compressionValue = 50;
 	
 	public static final double ArmF = 0.0;
-	public static final double ArmP = 0.4;
-	public static final double ArmI = 0.0;
+	public static final double ArmP = 0.6;
+	public static final double ArmI = 0.0004;
 	public static final double ArmD = 0.0;
 	
 	public static final double intakeTarget = 2250;
