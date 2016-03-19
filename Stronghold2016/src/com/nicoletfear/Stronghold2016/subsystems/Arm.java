@@ -67,8 +67,8 @@ public class Arm extends Subsystem {
     public void armUp(){
     	
     	if(upLimitSwitchPressed() == false){
-            position -= 10; // TODO is this sign correct?
-            if (position < RobotMap.topLimitSwitchSet)
+            position += 10; // TODO is this sign correct?
+            if (position > RobotMap.topLimitSwitchSet)
             {
             	position = RobotMap.topLimitSwitchSet;
             }
@@ -80,8 +80,8 @@ public class Arm extends Subsystem {
     public void armDown(){
     	     	
     	if(downLimitSwitchPressed() == false){
-            position += 10; // TODO is this sign correct?
-            if (position > RobotMap.bottomLimitSwitchSet)
+            position -= 10; // TODO is this sign correct?
+            if (position < RobotMap.bottomLimitSwitchSet)
             {
             	position = RobotMap.bottomLimitSwitchSet;
             }

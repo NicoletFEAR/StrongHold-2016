@@ -52,7 +52,7 @@ public class Robot extends IterativeRobot {
 		chooser = new SendableChooser();
 		chooser.addDefault("StandStill", new AutonomousStop());
 		chooser.addObject("Rock Wall", new AutonomousRockWall());
-		chooser.addObject("Moat", new AutonomousMoat());
+		chooser.addObject("Drive Straight", new AutonomousMoat());
 		chooser.addObject("Ramparts", new AutonomousRamparts());
 		chooser.addObject("Rocky Terrain", new AutonomousRockyTerrain());
 		chooser.addObject("Low Bar", new AutonomousLowBar());
@@ -129,7 +129,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("Arm Position", arm.positionMotor.getEncPosition());
-		SmartDashboard.putString("Version", "Testing 6.4.1 MKE.");
+		SmartDashboard.putString("Version", "Lance 6.4.2 MKE.");
 	}
 
 	/**

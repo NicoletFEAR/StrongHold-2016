@@ -43,18 +43,18 @@ public class RobotMap {
 	public static final double autoSpeed = 0.5;
 	
 	public static final double autoTimer = 5;
-	public static final double moatTimer = 4;
+	public static final double moatTimer = 3;
 	public static final double rockWallTimer = 3;
 	public static final double rockyTerrainTimer = 4;
 	public static final double rampartsTimer = 3;
-	public static final double lowBarTimer = 4;
+	public static final double lowBarTimer = 6;
 	public static final double portcullisTimer = 3;
 	public static final double armDownTimer = 3;
 	public static final double armUpTimer = 3;
 	
 	public static final double scaling = .6;
 	public static final double turningScaling = .45;
-	public static final double autoScaling = 1.45;
+	public static final double autoScaling = 1.13;
 	//Set to autoScaling 1.01 for Sir Lance A Bot
 	public static final double deadZone = 0.05;
 	
@@ -69,11 +69,12 @@ public class RobotMap {
 	public static final double ArmI = 0.0004;
 	public static final double ArmD = 0.0;
 	
-	public static final double intakeTarget = 2250;
-	public static final double homeTarget = 50;
+	
+	public static final double intakeTarget = -2500;
+	public static final double homeTarget = -50;
 	public static final double topLimitSwitchSet = 0;
-	public static final double portTarget = 2700;
-	public static final double bottomLimitSwitchSet = 2770;
+	public static final double portTarget = -3350;
+	public static final double bottomLimitSwitchSet = -3400;
     /* For example to map the left and right motors, you could define the
      following variables to use with your drivetrain subsystem.
      If you are using multiple modules, make sure to define both the port
