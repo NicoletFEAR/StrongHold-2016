@@ -129,7 +129,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("Arm Position", arm.positionMotor.getEncPosition());
-		SmartDashboard.putString("Version", "Testing 6.3 Duluth Comp.");
+		SmartDashboard.putString("Version", "Testing 6.4.1 MKE.");
 	}
 
 	/**
@@ -137,5 +137,6 @@ public class Robot extends IterativeRobot {
 	 */
 	public void testPeriodic() {
 		LiveWindow.run();
+		arm.updateFromNetworkTables();
 	}
 }

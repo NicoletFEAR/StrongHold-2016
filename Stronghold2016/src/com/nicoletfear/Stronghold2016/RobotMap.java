@@ -65,13 +65,15 @@ public class RobotMap {
 	public static final int compressionValue = 50;
 	
 	public static final double ArmF = 0.0;
-	public static final double ArmP = 0.8;
-	public static final double ArmI = 0.0004;
+	public static final double ArmP = 0.4;
+	public static final double ArmI = 0.0;
 	public static final double ArmD = 0.0;
 	
-	public static final double intakeTarget = -2100;
-	public static final double homeTarget = 0;
-	public static final double portTarget = -2500;
+	public static final double intakeTarget = 2250;
+	public static final double homeTarget = 50;
+	public static final double topLimitSwitchSet = 0;
+	public static final double portTarget = 2700;
+	public static final double bottomLimitSwitchSet = 2770;
     /* For example to map the left and right motors, you could define the
      following variables to use with your drivetrain subsystem.
      If you are using multiple modules, make sure to define both the port
