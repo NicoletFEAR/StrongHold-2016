@@ -68,10 +68,11 @@ public class Arm extends Subsystem {
     	
     	if(upLimitSwitchPressed() == false){
             position += 10; // TODO is this sign correct?
-            if (position > RobotMap.topLimitSwitchSet)
+           /* if (position > RobotMap.topLimitSwitchSet)
             {
             	position = RobotMap.topLimitSwitchSet;
             }
+            */
         }
     	positionMotor.set(position);
     }
@@ -110,12 +111,14 @@ public class Arm extends Subsystem {
         {
             positionMotor.setPosition(RobotMap.topLimitSwitchSet);
             position = RobotMap.topLimitSwitchSet;
+            positionMotor.set(RobotMap.topLimitSwitchSet);
         }        
 
         if(lastDownSwitchState == false && currentDownSwitchState == true)
         {
             positionMotor.setPosition(RobotMap.bottomLimitSwitchSet);
             position = RobotMap.bottomLimitSwitchSet;
+            positionMotor.set(RobotMap.bottomLimitSwitchSet);
         }
 
         lastUpSwitchState = currentUpSwitchState;

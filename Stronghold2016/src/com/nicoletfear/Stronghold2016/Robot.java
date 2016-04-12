@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.nicoletfear.Stronghold2016.subsystems.Arm;
 import com.nicoletfear.Stronghold2016.commands.AutonomousLowBar;
 import com.nicoletfear.Stronghold2016.commands.AutonomousMoat;
+import com.nicoletfear.Stronghold2016.commands.AutonomousPortcullis;
 import com.nicoletfear.Stronghold2016.commands.AutonomousRamparts;
 import com.nicoletfear.Stronghold2016.commands.AutonomousRockWall;
 import com.nicoletfear.Stronghold2016.commands.AutonomousRockyTerrain;
@@ -54,8 +55,9 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("Rock Wall", new AutonomousRockWall());
 		chooser.addObject("Drive Straight", new AutonomousMoat());
 		chooser.addObject("Ramparts", new AutonomousRamparts());
-		chooser.addObject("Rocky Terrain", new AutonomousRockyTerrain());
+		chooser.addObject("dont select", new AutonomousRockyTerrain());
 		chooser.addObject("Low Bar", new AutonomousLowBar());
+		chooser.addObject("PORT", new AutonomousPortcullis());
 		// makes objects to be seen in SmartDashboard
 		SmartDashboard.putData("Auto Selector", chooser);
 		
@@ -108,6 +110,18 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public void teleopInit() {
 		/*
@@ -116,7 +130,7 @@ public class Robot extends IterativeRobot {
 		 * another command, remove this line or comment it out.
 		 */
 		Robot.arm.positionMotor.set(0);
-		Robot.arm.positionMotor.setPosition(0);
+		//Robot.arm.positionMotor.setPosition(0); //If things don't work remove this line
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 		
